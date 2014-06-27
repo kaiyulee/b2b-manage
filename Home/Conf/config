@@ -1,0 +1,21 @@
+<?php
+$domain = 'http://b2b.wine.cn.local';
+return array(
+	'DB_TYPE'		=>		'mysql',
+	'DB_HOST'		=>		'127.0.0.1',
+	'DB_NAME'		=>		'wine_cn',
+	'DB_USER'		=>		'root',
+	'DB_PWD'		=>		'root',
+	'DB_PORT'		=>		'3306',
+	'DB_PREFIX'		=>		'b2b_',
+	'URL_MODEL'		=>		1,
+	'URL_CASE_INSENSITIVE' 	=>	TRUE,
+	'tmpl_parse_string'	=>	array(
+		'__ROOT__'		=>	$domain,
+		'__UPLOAD__'	=>	$domain . '/Upload/',
+		'__PUBLIC__'	=>	$domain . '/Public/',
+		'__IMAGE__'		=>	$domain . '/Public/images/',
+		'__JS__'		=>	$domain . '/Public/js/',
+		'__CSS__'		=>	$domain . '/Public/css/'
+	),
+);

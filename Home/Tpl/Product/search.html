@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索结果</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+<body class="iframebox">
+	<div class="b2bTable" id="J_b2bTable" data-count="{$total}">
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th width="420">名称</th>
+                    <th width="50">类型</th>
+                    <th width="80">产区</th>
+                    <th>品牌</th>
+                </tr>
+            </thead>
+            <tbody>
+                <volist name="list" id="vo">
+                	<tr data-id="{$vo.id}">
+	                    <td align="left">
+	                     <div class="table_proBox table_proBox_search">
+                            <if condition="$vo.et eq false">
+	                           <input type="checkbox" value="{$vo.id}" />
+                            </if>
+	                        <img class="theImg" src="http://upload.wine.cn/images/Jiuku/images{$vo.label}" />
+	                        <span>
+	                            <a href="#">
+                                    {$vo.cname}
+                                    <if condition="$vo.et neq false">
+                                    <strong>[已添加]</strong>
+                                    </if>
+                                    <br />
+                                    {$vo.fname}
+                                </a>
+                                <br />
+	                            <i><em>{$vo.country_name}/{$vo.region_name}</em></i>
+
+	                        </span>
+	                     </div>
+	                    </td>
+	                    <td align="center">{$vo.winetype_name}</td>
+	                    <td align="center">{$vo.country_name}/{$vo.region_name}</td>
+	                    <td align="center">{$vo.winery_name}</td>
+	                </tr>
+                </volist>
+            </tbody>
+        </table>
+        <p class="tableBot"><label><input type="checkbox" value="0" class="selAll" id="J_selAll"> <i>全选</i></label></p>
+        <p class="btnP">
+            <a href="/Product/Customize" target="_top" class="yellowBtn" id="J_sureAddBtn">确认添加</a> <a href="/Product/addWine" target="_top" class="haveNoBtn">没有我要添加的酒款？</a>
+        </p>
+    </div>
+    <div class="b2b_pageBox">{$page}</div>
+    <p class="noDataBox">
+        没有找到符合条件的酒款，请尝试以下操作：<br />1.使用其它条件继续搜索。<br />2.若库中没有您要添加的酒款，您可<a href="/Product/addWine">创建新的酒款</a>。
+    </p>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script>
+        var action = "__ROOT__/Product/doAddWineBySearch";
+        var moduleName = "{$Think.MODULE_NAME}";
+        var actionName = "{$Think.ACTION_NAME}";
+        $(function(){
+            var total = $("#J_b2bTable").attr("data-count"),
+                iheight;
+            if(total<10){
+                iheight = total*93+36+200;
+            }else{
+                iheight = 1300;
+            }
+            
+            window.parent.document.getElementById("J_dataList").height = iheight  
+        
+        //JQ CODE END
+        });
+    </script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop" link="__ROOT__/Product" />
+	<include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu"/>
+        <div class="b2b_main_r">
+        	<div class="sjinfo">
+                <div class="step4">
+                    <p class="sjinfo_tipTit02"></p>
+                    <div class="step2Con">
+                    	<p class="step4_p">您可以进一步自定义商品标题，添加酒款年份与批发价格：</p>
+                        <div class="b2bTable" id="J_b2bTable">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <thead>
+                            	<tr>
+                                	<th>酒款</th>
+                                    <th>自定义商品属性</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="list" id="vo">
+                                    <!-- start -->
+                                    <tr data-id="{$vo.id}">
+                                        <td>
+                                         <div class="table_proBox2">
+                                            <input type="checkbox" value="{$vo.id}">
+                                            <img src="http://b2b.wine.cn.local/Public/images/pic01.jpg" class="theImg">
+                                            <span>
+                                                <a href="#">{$vo.cname}<br>{$vo.fname}</a><br>
+                                                <i><em>{$vo.country_name}/{$vo.region_name}</em> <em>{$vo.winery_name}</em></i>
+                                            </span>
+                                            <input type="hidden" value="{$vo.fname}" name="fnm" id="fnm_{$vo.id}">
+                                            <input type="hidden" value="{$vo.cname}" name="cnm" id="cnm_{$vo.id}">
+                                            <input type="hidden" value="{$vo.id}" name="cad" id="cad_{$vo.id}">
+                                            <input type="hidden" value="{$vo.winery_id}" name="brd" id="brd_{$vo.id}">
+                                            <input type="hidden" value="{$vo.winetype_id}" name="wtp" id="wtp_{$vo.id}">
+                                            <input type="hidden" value="{$vo.grape_id}" name="grp" id="grp_{$vo.id}">
+                                            <input type="hidden" value="{$vo.country_id}" name="cty" id="cty_{$vo.id}">
+                                            <input type="hidden" value="{$vo.region_id}" name="reg" id="reg_{$vo.id}">
+                                            <input type="hidden" value="" name="tit">
+                                            <input type="hidden" value="" name="yer">
+                                            <input type="hidden" value="" name="hpc">
+                                         </div>
+                                        </td>
+                                        <td>
+                                            <div class="intable">
+                                                <table width="402" cellspacing="0" cellpadding="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="50" align="right">标题：</td>
+                                                            <td><input type="text" name="winetitle" id="title_{$vo.id}" class="table_inp_txt" value="{$vo.cname}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">年份：</td>
+                                                            <td>
+                                                                <select class="table_inp_sel H_table_inp_sel">
+                                                                    <option value="0">--选择并添加--</option>
+                                                                    <volist name="years" id="yr">
+                                                                        <option>{$yr}</option>
+                                                                    </volist>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">批发价：</td>
+                                                            <td>
+                                                                <label><input type="radio" value="1" class="b2b_radio" checked="checked" name="price_{$vo.id}"> 面议</label>
+                                                                <input type="radio" value="2" class="b2b_radio" name="price_{$vo.id}"><input type="text" maxlength="10" name="wholesale_price" class="price_txt" id="J_wholesalePrice_{$vo.id}">元
+                                                                <!-- .numbercheck -->
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- end -->
+                                </volist>
+                            </tbody>
+                        </table>
+                        <p class="tableBot"><label><input type="checkbox" value="0" class="selAll" id="J_selAll"> <i>全选</i></label></p>
+                        </div>
+                    </div>
+                    <p class="btnP">
+                    	 <a href="__ROOT__/Product/selectWine" class="returnBtn">《返回上一步</a> <a href="javascript:void(0)" id="J_batchAdd" class="yellowBtn">确认添加</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script>
+        var action = "__ROOT__/Product/doAddWineBySearch";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

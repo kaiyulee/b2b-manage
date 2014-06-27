@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台 -- 联系地址列表</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop" />
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu"/>
+        <div class="b2b_main_r">
+        	<div class="lxxx">
+                <div id="J_addressList">
+                	<div class="lxxx_listBox bb1e5e5e5">
+                    	<div class="tableTr">
+                            <i class="i">企业地址：</i>
+                            <span class="span">
+                                <select class="inp_sel H_selProvince" name="selProvince" id="J_provinceList">
+                                    <option value="0">--省份---</option>
+                                    <for start="1" end="9">
+                                        <option value="{$i}">--X{$i}省---</option>
+                                    </for>
+                                </select>
+                                <select class="inp_sel H_selCity" name="selCity">
+                                    <option value="0">--市/区---</option>
+                                </select>    
+                                <input type="text" name="Detailed" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">联 系 人：</i>
+                            <span class="span">
+                                <input type="text" name="uname" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">手    机：</i>
+                            <span class="span">
+                                <input type="text" name="phone" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">固    话：</i>
+                            <span class="span">
+                                <input type="text" name="tel" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">传    真：</i>
+                            <span class="span">
+                                <input type="text" name="fax" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="lxxx_listBox bb1e5e5e5">
+                        <div class="tableTr">
+                            <i class="i">企业地址：</i>
+                            <span class="span">
+                                <select class="inp_sel H_selProvince" name="selProvince">
+                                    <option value="0">--省份---</option>                                    
+                                </select>
+                                <select class="inp_sel H_selCity" name="selCity">
+                                    <option value="0">--市/区---</option>
+                                </select>
+                                <input type="text" name="Detailed" class="inp_txt" value="" />
+                                <a href="javascript:void(0)" data-id="0" class="lxxx_list_removeBtn H_deladdress">删除</a>
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">联 系 人：</i>
+                            <span class="span">
+                                <input type="text" name="uname" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">手    机：</i>
+                            <span class="span">
+                                <input type="text" name="phone" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">固    话：</i>
+                            <span class="span">
+                                <input type="text" name="tel" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">传    真：</i>
+                            <span class="span">
+                                <input type="text" name="fax" class="inp_txt" value="" />
+                            </span>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="tableTr addListTr">
+                    <i class="i">企业地址：</i>
+                    <span class="span">
+                        <a href="javascript:void(0)" class="yellowBtn" id="J_address">添加地址</a>
+                    </span>
+                </div>
+                <div class="tableTr clearfix">
+                    <i class="i"></i>
+                    <span class="span">
+                        <a href="javascript:void(0)" id="J_addressSave" class="whiteBtn">保 存</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script>
+        var action = "__ROOT__/Product/doAddAddress"; 
+        var getRegByCtry = "";
+        var proList = document.getElementById("J_provinceList").innerHTML;
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>    
+    <script src="__JS__b2b.js"></script>    
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop" />
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu" />
+        <div class="b2b_main_r">
+            <div class="sjinfo">
+                <div class="step2">
+                    <p class="sjinfo_tipTit02"></p>
+                    <div class="tab_navBox">
+                        <a href="__ROOT__/Product/selectWine">快速查找</a>
+                        <a href="__ROOT__/Product/importWine" class="active">导入已发布的酒款</a>
+                    </div>   
+                    <div class="step2Con j_souj_showBox03">
+                        <div class="b2bTable" id="J_b2bTable">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>酒款</th>
+                                        <th>类型</th>
+                                        <th>所在应用</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                         <div class="table_proBox">
+                                            <input type="checkbox" name="wid" value="1" />
+                                            <img class="theImg" src="__IMAGE__pic01.jpg" />
+                                            <span>
+                                                <a href="#">柏图斯家族波尔多红葡萄酒<br />Selection Jean-Pierre Moueix</a>
+                                                <br>
+                                                <i>法国/波尔多</i>
+                                            </span>
+                                         </div>
+                                        </td>
+                                        <td align="center">葡萄酒-红葡萄酒</td>
+                                        <td align="center">大众酒评</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="tableBot"><label><input type="checkbox" value="0" class="selAll" id="J_selAll"> <i>全选</i></label></p>
+                        </div>
+                        <p class="btnP">
+                            <a href="B2B商家后台_发布我的产品-03.html" id="J_importBtn" class="yellowBtn">导入</a>
+                        </p>
+                    </div>
+                    <div class="b2b_pageBox">  <span class="current">1</span><a href="/product/search/p/2.html">2</a><a href="/product/search/p/3.html">3</a><a href="/product/search/p/4.html">4</a><a href="/product/search/p/5.html">5</a> <a href="/product/search/p/2.html">下一页</a> <a href="/product/search/p/1218.html">最后一页</a></div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script>
+       var action = "__ROOT__/Product/importWine";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

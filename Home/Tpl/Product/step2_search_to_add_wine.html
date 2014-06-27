@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu" />
+        <div class="b2b_main_r">
+        	<div class="sjinfo">
+                <div class="step2">
+                    <p class="sjinfo_tipTit02"></p>
+                    <div class="tab_navBox">
+                        <a href="__ROOT__/Product/selectWine" class="active">快速查找</a>
+                        <a href="__ROOT__/Product/importWine">导入已发布的酒款</a>
+                    </div>
+                    <div class="step2Con j_souj_showBox01">
+                        <div class="tableTr">
+                        	<i class="i">请输入：</i>
+                            <span class="span">
+                            	<input type="text" name="search_input" class="inp_txt" id="J_search" value="酒款名\国家\产区\酒类型\品牌" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                        	<i class="i"></i>
+                            <span class="span">
+                            	<select class="inp_sel" id="sl-ctry">
+                                	<option value="0">--选择国家--</option>
+                                    <volist name="country" id="vo">
+                                    <option value="{$vo.id}" fnm="{$vo.fname}">&nbsp;&nbsp;&nbsp;&nbsp;{$vo.cname}</option>
+                                    </volist>
+                                </select>
+                                <select class="inp_sel" id="sl-reg">
+                                	<option value="0">--选择产区--</option>
+                                </select>
+                                <select class="inp_sel" id="sl-wtp">
+                                	<option value="0">--选择酒类型--</option>
+                                    <volist name="wtype" id="vo">
+                                    <option value="{$vo.id}" fnm="{$vo.fname}">&nbsp;&nbsp;&nbsp;&nbsp;{$vo.cname}</option>
+                                    </volist>
+                                </select>
+                                <select class="inp_sel" id="sl-brd">
+                                	<option value="0">--选择品牌--</option>
+                                    <volist name="brand" id="vo">
+                                    <option value="{$vo.id}" fnm="{$vo.fname}" ctry="{$vo.country_id}">&nbsp;&nbsp;&nbsp;&nbsp;{$vo.cname} {$vo.fname}</option>
+                                    </volist>
+                                </select>
+                            </span>
+                        </div>
+                        <p class="btnP">
+                    	<a href="javascript:void(0)" class="yellowBtn" id="J_searchBtn">搜索逸香酒库</a>
+                    </p>
+                    </div>
+                    <div class="step2Con j_souj_showBox02">                       
+                        <iframe src="about:blank" id="J_dataList" frameborder="0" width="744" height="150" scrolling="no"></iframe>                        
+                    </div>                    
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script>
+       var getRegByCtry = "__ROOT__/Common/getRegByCtry";
+       var searchURL = "__ROOT__/Product/search";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

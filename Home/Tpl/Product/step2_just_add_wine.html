@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop" />
+    <div class="over_pai m-brand-pop" id="J_brandPop">
+        <div class="d_title_pai"><span class="t_pai">选择酒庄/品牌</span><span class="close" id="J_closeBrandPop">x</span></div>
+        <div class="content_pai">
+            <input type="text" class="content_pai_top">
+            <ul class="content_pai_bottom" id="J_brandList">
+                <volist name="brands" id="vo">
+                    <li ctry="{$vo.country_id}" brand="{$vo.id}">{$vo.cname}/{$vo.fname}</li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu" />
+        <div class="b2b_main_r">
+        	<div class="sjinfo">
+            	
+            	<div class="step7">
+                    <p class="sjinfo_tipTit02"></p>
+                    <p class="step7_p"><a href="/Product/chooseCategory">《返回上一步</a></p>
+                    <div class="step2Con">
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>中文名：</i>
+                            <span class="span">
+                                <input type="hidden" name="wid" id="J_addWineId" value="" />
+                                <input type="text" class="inp_txt H_inp_txt" name="cname" id="J_addWineCname" value="英文名与原文名必填一项" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>英文名：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt H_inp_txt" name="fname" id="J_addWineFname" value="英文名与原文名必填一项" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>酒庄/品牌：</i>
+                            <span class="span">
+                                <em class="jzorpp"></em> <a href="javascript:void(0)" class="col_red" id="J_runBrandPop">选择酒庄/品牌>></a>
+                            </span>
+                            <input type="hidden" id="brand_bear" name="brand" brand-name="" value="">
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>国家：</i>
+                            <span class="span">
+                                <select class="inp_sel" name="ctry" id="sl-ctry">
+                                    <option value="0">--选择国家--</option>
+                                    <volist name="country" id="vo">
+                                    <option value="{$vo.id}" fnm="{$vo.fname}">&nbsp;&nbsp;&nbsp;&nbsp;{$vo.cname}</option>
+                                    </volist>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>产区：</i>
+                            <span class="span">
+                                <select class="inp_sel" name="reg" id="sl-reg">
+                                    <option value="0">--选择产区--</option>
+                                </select>
+                                <select class="inp_sel inp_sel_h" name="reg2" id="sl-reg2">
+                                    <option value="0">--选择产区--</option>
+                                </select>
+                                <select class="inp_sel inp_sel_h" name="reg3" id="sl-reg3">
+                                    <option value="0">--选择产区--</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>葡萄酒类型：</i>
+                            <span class="span">
+                                <select class="inp_sel" name="wtp" id="J_addWineType">
+                                    <option value="0">--选择类型--</option>
+                                    <volist name="wtype" id="vo">
+                                    <option value="{$vo.id}" fnm="{$vo.fname}">&nbsp;&nbsp;&nbsp;&nbsp;{$vo.cname}</option>
+                                    </volist>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="tableTr bb1e5e5e5 variety">
+                            <div class="varietyaction">
+                                <i class="i"><em>*</em>葡萄品种：</i>
+                                <span class="span">
+                                    <input type="text" class="inp_txt H_inp_txt" name="variety" id="J_variety" value="外文名/中文名" />
+                                    <!-- <a href="#" class="whiteBtn">添加葡萄品种</a> -->
+                                </span>
+                                <div class="content_pai_div" id="J_varietyList">
+                                    
+                                </div>
+                            </div>
+                            <ul class="varietytag" id="J_varietyTag"></ul>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">标题：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="tit" id="J_addWineTit" value="" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">年份：</i>
+                            <span class="span">
+                                <select class="inp_sel H_table_inp_sel" name="yer" id="J_addWineYer">
+                                    <option value="0">--选择并添加--</option>
+                                    <volist name="year" id="yr">
+                                        <option>{$yr}</option>
+                                    </volist>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="tableTr bb1e5e5e5">
+                            <i class="i">批发价：</i>
+                            <span class="span" id="J_wholesalePrice">
+                                <label><input type="radio" name="price1" class="b2b_radio" checked="checked" value="0" /> 面议</label>
+                                <input type="radio" name="price1" class="b2b_radio" value="1" /><input type="text" name="price" id="J_addWinePrice" class="price_txt" />元
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i va_t">图片上传：</i>
+                            <span class="span addwineimgbox" id="J_addWineImg">
+                                <a href="javascript:void(0)" class="addwineimg"><img src="__IMAGE__upImg03.jpg" /></a>
+                                <a href="javascript:void(0)" class="addwineimg"><img src="__IMAGE__upImg04.jpg" /></a>
+                                <a href="javascript:void(0)" class="addwineimg"><img src="__IMAGE__upImg05.jpg" /></a>
+                            </span>
+                            <input type="hidden" name="cat1" id="J_cat1" value="">
+                            <input type="hidden" name="cat2" id="J_cat2" value="">
+                            <input type="hidden" name="cat3" id="J_cat3" value="">
+                        </div>
+                    </div>
+                    <p class="btnP">
+                         <a href="javascript:void(0)" id="J_addWineBtn" class="yellowBtn">确认添加</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script type="text/javascript">
+        var imgpath = "__IMAGE__";
+        var action = "__ROOT__/Product/doAddWine";
+        var uploadurl = "__ROOT__/Product/uploadWineImg";
+        //根据国家切换产区
+        var getRegByCtry = "__ROOT__/Common/getRegByCtry";
+        // 获取品牌列表
+        var getBrands = "__ROOT__/Common/getBrands";
+        // 葡萄品种
+        var getGrapeType = "__ROOT__/Common/getGrapeType";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__ajaxupload.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

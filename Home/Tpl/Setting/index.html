@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台 -- 基本信息</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop" />
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu"/>
+        <div class="b2b_main_r">
+        	<div class="jbzl">
+                <h3 class="jbzl_h3">完善资料可以提升品牌的知名度</h3>
+                <div class="step2Con">
+                    <div class="tableTr">
+                        <i class="i">邮箱帐号：</i>
+                        <span class="span">
+                            <em class="emailBox">haonaiChina@hotmail.com</em> <a href="#" class="changeEmailBtn">更换邮箱></a>
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i">手机帐号：</i>
+                        <span class="span">
+                            <em class="phoneBox">未设置手机帐号</em> <a href="#" class="changePhoneBtn">输入并验证></a>
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i"><em>*</em>企业全称：</i>
+                        <span class="span">
+                            <input type="text" class="inp_txt" value="" />
+                             <var class="inpTip">注：若企业全称与营业执照中不同，<br />请联系逸香客服进行修改。</var>
+                        </span>
+                       
+                    </div>
+                    <div class="tableTr">
+                        <i class="i">企业简称：</i>
+                        <span class="span">
+                            <input type="text" class="inp_txt" value="" />
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i va_t"><em>*</em>企业Logo：</i>
+                        <span class="span bb1e5e5e5">
+                            <a href="#" class="upImgA logo-upload" id="J_logoUpload"><img src="__IMAGE__upImg01.jpg" /><input type="hidden" name="logoimg" value="" /></a> <!--<a href="#" class="whiteBtn upImgBtn">上 传</a>-->
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i"><em>*</em>企业类型：</i>
+                        <span class="span">
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 经销商</label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 代理商</label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 进口商</label></em>
+                            <em  class="inp_che_em w94"><label><input type="checkbox" class="inp_che" /> 国际酒商/酒庄</label></em>
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i"><em>*</em>支持业务：</i>
+                        <span class="span">
+                            <em  class="inp_che_em"> <label><input type="checkbox" class="inp_che" /> 零售</label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 批发</label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 加盟</label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 代理 </label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> OEM </label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 仓储</label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 运输</label></em>
+                            <em  class="inp_che_em"><label><input type="checkbox" class="inp_che" /> 报关</label></em>
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i">企业规模：</i>
+                        <span class="span">
+                            <select class="inp_sel">
+                                <option>--请选择企业规模---</option>
+                                <option>--中国--</option>
+                                <option>--美国--</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i">注册地址：</i>
+                        <span class="span">
+                        	<select class="inp_sel">
+                                <option>--省份---</option>
+                                <option>--中国--</option>
+                                <option>--美国--</option>
+                            </select>
+                            <select class="inp_sel">
+                                <option>--市/区---</option>
+                                <option>--中国--</option>
+                                <option>--美国--</option>
+                            </select>
+                            <input type="text" class="inp_txt" value="" />
+                        </span>
+                    </div>
+                    <div class="tableTr">
+                        <i class="i">企业网址：</i>
+                        <span class="span">
+                            <input type="text" class="inp_txt" value="" />
+                        </span>
+                    </div>
+                    <div class="tableTr clearfix">
+                        <i class="i va_t">资质证书：</i>
+                        <span class="span bb1e5e5e5" id="J_uploadImgBox">
+                            <strong></strong>
+                            <em class="upPicEm" data-state="0">
+                                <a href="javascript:void(0)" class="uploadimg uploadimgcon"><img src="http://b2b.wine.cn.local/Public/images/upImg02.jpg"></a><br>
+                                <a href="javascript:void(0)" class="changeBtn uploadimg">修改 </a> <a href="javascript:void(0)" class="removeBtn">删除</a>
+                            </em>
+                            <em class="upPicEm" data-state="0">
+                                <a href="javascript:void(0)" class="uploadimg uploadimgcon"><img src="http://b2b.wine.cn.local/Public/images/upImg02.jpg"></a><br>
+                                 <a href="javascript:void(0)" class="changeBtn uploadimg">修改 </a> <a href="javascript:void(0)" class="removeBtn">删除</a>
+                            </em>                               
+                            <a href="javascript:void(0)" class="whiteBtn t82" id="J_addCtBtn">添加证书</a>
+                            <input type="hidden" name="qc" id="J_qc" value="">
+                        </span>
+                    </div>
+                    <div class="tableTr clearfix">
+                        <i class="i"></i>
+                        <span class="span">
+                            <a href="#" class="whiteBtn">保 存</a>
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+           </div> 
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script type="text/javascript">
+      var imgpath = "__IMAGE__";
+      var action = "__ROOT__/Product/doAddTool";
+      var uploadurl = "__ROOT__/Product/uploadOtherImg";
+      var delimg = "__ROOT__/Product/deleteOtherImg";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__ajaxupload.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

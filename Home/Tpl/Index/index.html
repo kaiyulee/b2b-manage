@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台 -- 首页</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:delpop" />
+	<div class="headbg">
+        <div class="b2b_head">
+            <p class="b2b_head_l">
+                欢迎来到逸香商家管理后台！
+                <a href="#">浩奈酒业有限公司</a>
+                <a href="#">退出</a>
+            </p>
+            <p class="b2b_head_r">
+                <a href="#" class="infoTip">消息<span>16</span></a>
+                <a href="#" class="vipBtn">VIP特权</a>
+                <span class="phoneBox">逸香服务热线：400-15843224</span>
+            </p>
+        </div>
+    </div>
+    <div class="b2b_nav">
+    	<div class="b2b_nav_nr">
+        	<a href="#">企业通行证</a>
+            <a href="#" class="active">在线酒展</a>
+            <a href="#">大众酒评</a>
+        </div>
+    </div>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu"/>
+        <div class="b2b_main_r">
+        	<div class="indexBox">
+                <div class="indexBox_topBox">
+                	<div class="indexBox_topBox_l">
+                    	<p class="btn"><a href="#"><img src="__IMAGE__picBtn_01.jpg" /></a></p>
+                        <p class="size">级别：<span class="size_span"><img src="__IMAGE__jin_ico.png" class="size_ico" />金牌代理商</span>   <a href="#">升级续费</a></p>
+                        <p class="time">到期时间：<span>2014-12-12</span></p>
+                    </div>
+                    <div class="indexBox_topBox_r">
+                    	<p class="indexBox_topBox_r_p1">信息完整度： <span class="runbox"><em style="width:36%;">36%</em></span></p>
+                        <p class="indexBox_topBox_r_p2">完善以下信息，您的企业将获得更多关注：</p>
+                        <p class="indexBox_topBox_r_p3"><a href="#">招商政策</a>   <a href="#">我的产品/服务</a></p>
+                    </div>
+                </div>
+                <h3 class="indexBox_h3"><strong>客户留言</strong> <span>本周共被浏览<em>33</em>次</span></h3>
+                <ul class="indexBox_ul">
+                    <volist name="list" id="vo">
+                        <li data-id="{$vo.id}">
+                            <h4><span>{$vo.cmtime}</span> <a href="javascript:void(0)" class="h_delmsg">删除</a></h4>
+                            <p>
+                                <span>姓名：<em>{$vo.name}</em></span>
+                                <span>电话：<em>{$vo.tel}</em></span>
+                                <span>留言：<em>{$vo.content}</em></span>
+                            </p>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script>
+        var delAction = "__ROOT__/Index";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

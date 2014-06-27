@@ -1,0 +1,193 @@
+B2B Second Period
+// 本地测试
+URL: b2b.wine.cn.local,模板中用__ROOT__代替
+
+1 展铺装修
+1.1 首页设置: __ROOT__/Setting/indexset   
+
+1.2 传递参数name属性: channel 频道名称,如果是首页设置,值为1;企业介绍,值2;招商政策,值3.  
+					pagecontent 文本内容     
+					pageimg 首页设置图片,只有首页设置才有!!!
+
+​1.3 AJAX调用方法: __ROOT__/Setting/setPageContent
+
+1.4 首页设置上传图片调用方法:__ROOT__/Setting/uploadIndexImg
+
+2 我的产品/服务
+2.1 新增酒款提交数据,表单数据默认通过表单自身传递,图片部分需要构造json,如此:{imgs: {cat1: img1, cat2: img2, cat3: img3}},其中img123是图片名字.
+	AJAX调用方法: __ROOT__/Product/doAddWine
+2.2 新增酒具,图片部分需要构造json,如此{imgs: {img1, img2, img3}},注意,没有2.1所示的cat1,2,3.
+	AJAX调用方法: __ROOT__/Product/doAddTool
+2.3 新增服务,同2.2,
+	AJAX调用方法: __ROOT__/Product/doAddService
+2.4 新增酒款时,图片上传调用方法 __ROOT__/Product/uploadWineImg
+	新增酒具或服务时,图片上传调用方法 __ROOT__/Product/uploadOtherImg
+2.5 删除图片(针对酒具和服务) 
+	传递图片名称,name属性img
+	AJAX调用方法:__ROOT__/Product/deleteOtherImg
+2.6 列表：
+	我的产品 __ROOT__/Product/getMyWine；
+	我的服务 __ROOT__/Product/getMyTool；
+	我的品牌 __ROOT__/Product/getMyService
+
+快速搜索
+0.1 输入框name名:input
+0.2 级联条件查询
+	name名
+	'cid',
+	'rid',
+	'nid',
+	'tid'
+	前端这些name名放在一个名字为criteria的对象里,like this {criteria: {name1:val1, name2:val2, name3:val3, ...}}
+	映射:
+	$srh_map = array(
+		'cid'	=>	'country_id',
+		'rid'	=>	'region_id',
+		'nid'	=>	'winery_id',
+		'tid'	=>	'winetype_id'
+	);
+	PHP映射之后,	显示字段名及对应的值	
+	array(
+		'id'	=> '',
+		'wine_id'	=>	'',
+		'country_id'	=>	'',
+		'region_id'	=>	'',
+		'winery_id'	=>	'',
+		'winetype_id'	=>	''
+	)
+0.2.1 根据国家选择产区,name属性值‘ct’(对应的国家id),多级产区还需要传递当前产区的id,相应name为reglv,值即产区id
+	__ROOT__/Common/getRegByCtry   {ct:国家id,reglv:产区id}
+批量添加酒款数据格式
+0.1 数据库字段属性
+	fname	varchar(120)
+	cname	varchar(120)
+	caname_id	int(11)
+	brand	int(11)
+	winetype	int(11)
+	grape	int(11)
+	country	int(11)
+	region	varchar(50)
+	title	varchar(120)
+	year	varchar(50)
+	wholesale_price	varchar(50)
+0.2 前端name值对应的数据库字段值
+	array(
+		'fnm'=>'fname',
+		'cnm'=>'cname',
+		'cad'=>'caname_id',
+		'brd'=>'brand',
+		'wtp'=>'winetype',
+		'grp'=>'grape',
+		'cty'=>'country',
+		'reg'=>'region',
+		'tit'=>'title',
+		'yer'=>'year',
+		'hpc'=>'wholesale_price'
+	);
+0.3 批量酒款数据结构
+	{
+		key: {
+			fnm:'fname',
+			cnm:'cname',
+			cad:'caname_id',
+			brd:'brand',
+			wtp:'winetype',
+			grp:'grape',
+			cty:'country',
+			reg:'region',
+			tit:'title',
+			yer:'year',
+			hpc:'wholesale_price'
+		},
+		key: {
+			fnm:'fname',
+			cnm:'cname',
+			cad:'caname_id',
+			brd:'brand',
+			wtp:'winetype',
+			grp:'grape',
+			cty:'country',
+			reg:'region',
+			tit:'title',
+			yer:'year',
+			hpc:'wholesale_price'
+		},
+		key: {
+			fnm:'fname',
+			cnm:'cname',
+			cad:'caname_id',
+			brd:'brand',
+			wtp:'winetype',
+			grp:'grape',
+			cty:'country',
+			reg:'region',
+			tit:'title',
+			yer:'year',
+			hpc:'wholesale_price'
+		}
+	}
+0.4 批量添加URL __ROOT__/Product/doAddWineBySearch
+
+添加酒具
+表单name:
+'wstype'		=>		'tp', 类型
+'wsname'		=>		'nm', 酒具名称
+'wsdetail'		=>		'detail' 详细
+__ROOT__/Product/doAddTool
+
+添加服务
+'svtype'		=>		'tp', 类型
+'svname'		=>		'nm',	名称
+'svdetail'		=>		'detail' 详细
+__ROOT__/Product/doAddService
+
+酒具/服务图片处理
+上传 __ROOT__/Product/uploadOtherImg 上传时, 前端这么传:{imgs: {img1, img2, img3}}
+删除 __ROOT__/Product/deleteOtherImg 删除时，接收name为img的传值,没有批量删
+
+获取品牌列表
+__ROOT__/Common/getBrands
+
+如果keyup搜索,post一个‘is_keyup’，和一个‘match’，'is_keyup' = true, 'match' = '输入的字符串'
+
+国家列表
+__ROOT__/Common/getCountry
+
+葡萄品种
+{match:ssssssearch}
+__ROOT__/Common/getGrapeType
+
+添加白酒烈酒
+-------------------------------------------------------------
+NAME名		意义							对应字段
+std 		标准酒ID 					std_id
+brd 		品牌 						brand
+typ 		类型;1白酒,2洋酒 			type
+reg 		产地 						region
+fld 		香型/类型ID 					flavor_id
+flv 		香型/类型     				flavor
+bcd 		条形码 						barcode
+cnm 		中文名 						cname
+enm 		英文名 						ename
+tit 		用户自定标题   				title
+acd 		酒精度 						alcohol_degree
+cpt     	容量 						capacity
+spt 		包装规格 					specificat
+hpc 		批发价  						wholesale_price
+hos 		酒厂 						brew_house
+raw 		原料 						raw_material
+ftr 		产品特征 					product_features
+prs 		酿造工艺 					brew_process
+onr  		荣誉奖项 					honor_awards
+-------------------------------------------------------------
+url: __ROOT__/Product/doAddBjlj
+
+更新酒款
+url: __ROOT__/Product/doUpdateWine/id/{1}
+url: __ROOT__/Product/doUpdateSt/id/{1} 酒具或服务，需要post一个type，1为酒具，2为服务 [必须]
+url: __ROOT__/Product/doUpdateBjlj/id/{1}
+
+删除 酒款，酒具，服务
+url: __ROOT__/Product/deleteWine/id/{1}
+url: __ROOT__/Product/deleteSt/id/{1}  删除酒具或服务，需要post一个type，1为酒具，2为服务 [必须]
+url: __ROOT__/Product/deleteBjlj/id/{1}

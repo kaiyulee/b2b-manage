@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台--产品/服务</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+<body>
+    <include file="Common:delpop" />
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu" />
+        <div class="b2b_main_r">
+            <div class="cpfw">
+                <div class="cpfw_topBox">
+                	<input type="text" class="inp_txt w230" value="商机名" id="J_search" />
+                    <select class="inp_sel" id="J_typeSel">
+                        <option value="0">--全部类型--</option>
+                        <option value="1">葡萄酒</option>
+                        <option value="2">白酒</option>
+                        <option value="3">洋酒</option>
+                        <option value="4">酒具</option>
+                        <option value="5">服务</option>
+                    </select>
+                    <a href="javascript:void(0)" class="whiteBtn" id="J_searchDefault">搜 索</a>
+                    
+                    <a href="{:U('/Product/chooseCategory')}" class="yellowBtn fr">发布产品/服务</a>
+                </div>
+                <div>
+                	<div class="tab_navBox">
+                        <a href="__ROOT__/Product/">我的产品(<i></i>)</a>
+                        <a href="__ROOT__/Product/Myservice">我的服务(<i></i>)</a>
+                        <a href="__ROOT__/Product/Mybrand" class="active">全部品牌(<i></i>)</a>
+                    </div>
+                    <div class="b2bTable" id="J_productList">
+                    <!-- <table cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th width="470">名称</th>
+                                <th>类型</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="left">
+                                 <div class="table_proBox">
+                                    <img class="theImg" src="__IMAGE__pic01.jpg" />
+                                    <span>
+                                        <a href="#">柏图斯家族波尔多红葡萄酒<br />Selection Jean-Pierre Moueix</a><br />
+                                        <i><em>法国/波尔多</em></i>
+                                    </span>
+                                 </div>
+                                </td>
+                                <td align="center">红葡萄酒</td>
+                                <td align="center"><a href="#" class="addBtn">添加/修改属性</a> <a href="#" class="removeBtn" data-type="0" data-id="1">删除</a></td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                    </div>
+                    
+                    <p class="b2b_pageBox">
+                    	{$page}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script>
+        var action = "__ROOT__/Product/doAddService";
+        var delAction = "__ROOT__/Product/deleteBjlj";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

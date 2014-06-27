@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop" />
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu" />
+        <div class="b2b_main_r">
+        	<div class="sjinfo">
+            	
+            	<div class="step7">
+                    <p class="sjinfo_tipTit02"></p>
+                    <p class="step7_p"><a href="/Product/chooseCategory">《返回上一步</a></p>
+                    <div class="step2Con">
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>酒具类型：</i>
+                            <span class="span">
+                            	<select class="inp_sel" name="wstype" id="J_addType">
+                                    <option value="{$res.tp}">{$res.tp}</option>
+                                    <option value="0">--酒具类型--</option>
+                                    <option value="酒杯">酒杯</option>
+                                    <option value="醒酒器">醒酒器</option>
+                                    <option value="酒刀">酒刀</option>
+                                    <option value="酒架">酒架</option>
+                                    <option value="酒鼻子">酒鼻子</option>
+                                    <option value="酒柜">酒柜</option>
+                                    <option value="礼盒">礼盒</option>
+                                    <option value="壶">壶</option>
+                                </select>                               
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>名称：</i>
+                            <span class="span">
+                                <input type="hidden" value="{$res.id}" name="serviceid" id="J_addId" />
+                                <input type="text" class="inp_txt" value="{$res.nm}" name="wsname" id="J_addName" />
+                            </span>
+                        </div>
+                        
+                        <div class="tableTr clearfix">
+                            <i class="i va_t">资质证书：</i>
+                            <span class="span bb1e5e5e5" id="J_uploadImgBox">
+                                <strong></strong>
+                                <if condition="$imgs eq false">
+                                    <em class="upPicEm" data-state="0" data-name="">
+                                        <a href="javascript:void(0)" class="uploadimg uploadimgcon"><img src="__IMAGE__upImg02.jpg"></a><br>
+                                        <a href="javascript:void(0)" class="changeBtn uploadimg">修改 </a> <a href="javascript:void(0)" class="removeBtn">删除</a>
+                                    </em>
+                                    <em class="upPicEm" data-state="0" data-name="">
+                                        <a href="javascript:void(0)" class="uploadimg"><img src="__IMAGE__upImg02.jpg"></a><br>
+                                        <a href="javascript:void(0)" class="changeBtn uploadimg">修改 </a> <a href="javascript:void(0)" class="removeBtn">删除</a>
+                                    </em>  
+                                <else/>
+                                    <volist name="imgs" id="vo">
+                                        <em class="upPicEm" data-state="1" data-name="{$vo.imgnm}">
+                                            <a href="javascript:void(0)" class="uploadimg uploadimgcon"><img src="__UPLOAD__/images/{$vo.imgnm}"></a><br>
+                                            <a href="javascript:void(0)" class="changeBtn uploadimg">修改 </a> <a href="javascript:void(0)" class="removeBtn">删除</a>
+                                        </em>
+                                    </volist>
+                                </if>                         
+                                <a href="javascript:void(0)" class="whiteBtn t82" id="J_addCtBtn">添加证书</a>
+                                <input type="hidden" name="qc" id="J_qc" value="">
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i va_t">详情：</i>
+                            <span class="span">
+                                <script id="editor" name="wsdetail" type="text/plain" style="width:600px;height:300px;">{$res.detail}</script>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="btnP">
+                         <a href="javascript:void(0)" class="yellowBtn" id="J_addToolBtn">确认添加</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <!--文本编辑器-->
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__plugins/ueditor1_4_3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__plugins/ueditor1_4_3/ueditor.all.min.js"></script>
+    <script type="text/javascript">
+      var edit = UE.getEditor('editor');
+      var stType = 1;
+      var imgpath = "__IMAGE__";
+      var action = "__ROOT__/Product/doUpdateSt";
+      var uploadurl = "__ROOT__/Product/uploadOtherImg";
+      var delimg = "__ROOT__/Product/deleteOtherImg";
+    </script>
+    <!--文本编辑器-->
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__ajaxupload.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>

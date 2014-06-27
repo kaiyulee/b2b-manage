@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop" />
+	<div class="headbg">
+        <div class="b2b_head">
+            <p class="b2b_head_l">
+                欢迎来到逸香商家管理后台！
+                <a href="#">浩奈酒业有限公司</a>
+                <a href="#">退出</a>
+            </p>
+            <p class="b2b_head_r">
+                <a href="#" class="infoTip">消息<span>16</span></a>
+                <a href="#" class="vipBtn">VIP特权</a>
+                <span class="phoneBox">逸香服务热线：400-15843224</span>
+            </p>
+        </div>
+    </div>
+    <div class="b2b_nav">
+    	<div class="b2b_nav_nr">
+        	<a href="#">企业通行证</a>
+            <a href="#" class="active">在线酒展</a>
+            <a href="#">大众酒评</a>
+        </div>
+    </div>
+    <div class="b2b_main clearfix">
+		<include file="Common:menu" />
+        <div class="b2b_main_r">
+        	<div class="qyjs">
+            	<div class="tableTr">
+                    <i class="i va_t">焦 点 图：</i>
+                    <span class="span">
+                        <a href="javascript:void(0)" class="upImgA indexsethotimg" id="J_indexSet">
+                            <if condition="$res.img eq false">
+                            <img src="__IMAGE__upImg06.jpg" id="J_indenSetImg" />
+                            <else/>
+                            <img src="__UPLOAD__images/{$res.img}" id="J_indenSetImg" />
+                            </if>
+                        </a>
+                        <!--<a href="#" class="whiteBtn upImgBtn">上 传</a>-->
+                        <input type="hidden" value="{$res.img}" name="indexsethotimg" id="J_indexSetHotimg" />
+                    </span>
+                </div>
+                <div class="tableTr">
+                    <i class="i va_t">首页正文：</i>
+                    <span class="span">
+                        <script id="editor" name="pagecontent" type="text/plain" style="width:600px;height:300px;">{$res.content|htmlspecialchars_decode}</script>
+                    </span>
+                </div>
+                <div class="tableTr clearfix">
+                    <i class="i"></i>
+                    <span class="span">
+                        <a href="javascript:void(0)" class="whiteBtn" id="J_saveConBtn">保 存</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <!--文本编辑器-->
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__plugins/ueditor1_4_3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__plugins/ueditor1_4_3/ueditor.all.min.js"></script>
+    <!--文本编辑器-->
+    <script>        
+        var edit = UE.getEditor('editor');
+        var channel = 1;
+        var uploadurl = '__ROOT__/Setting/uploadIndexImg';
+        var action = "__ROOT__/Setting/setPageContent"; 
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__ajaxupload.js"></script>
+    <script src="__JS__b2b.js"></script>     
+</body>
+</html>

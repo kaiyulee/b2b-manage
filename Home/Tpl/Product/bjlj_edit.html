@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商家后台</title>
+<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
+</head>
+
+<body>
+    <include file="Common:pop"/>
+    <include file="Common:titlebar"/>
+    <div class="b2b_main clearfix">
+        <include file="Common:menu" />
+        <div class="b2b_main_r">
+        	<div class="sjinfo">
+            	
+            	<div class="step7">
+                    <p class="sjinfo_tipTit02"></p>
+                    <p class="step7_p"><a href="/Product/chooseCategory">《返回上一步</a></p>
+                    <div class="step2Con">
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>类型：</i>
+                            <span class="span">
+                                <if condition="$res.type eq 1">白酒<else/>洋酒</if><input type="hidden" class="inp_txt" name="typ" id="J_addWineType" value="{$res.type}" />
+                            </span>
+                            <input type="hidden" name="cnm" id="J_addWineId" value="{$res.id}" />
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>条形码：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="bcd" id="J_addWineBarcode" value="{$res.barcode}" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>中文名：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="cnm" id="J_addWineCname" value="{$res.cname}" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>英文名：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="enm" id="J_addWineFname" value="{$res.ename}" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>品牌：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" id="J_addWineBrand" name="brd" value="{$res.brand}" />
+                            </span>                            
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>香型：</i>
+                            <span class="span">
+                                <select name="flv" id="J_addWineFlv" class="inp_sel">
+                                    <option value="{$res.flavor_id}">{$res.flavor}</option>
+                                    <if condition="$res.type eq 1">
+                                    <option value="0">--选择香型--</option>
+                                    <option value="10000000">浓香型</option>
+                                    <option value="10000001">凤香型</option>
+                                    <option value="10000002">酱香型</option>
+                                    <option value="10000003">清香型</option>
+                                    <option value="10000004">馥郁香型</option>
+                                    <option value="10000005">芝麻香型</option>
+                                    <option value="10000006">兼香型</option>
+                                    <option value="10000008">董香型</option>
+                                    <option value="10000010">特香型</option>
+                                    <option value="10000011">老白干香型</option>
+                                    <option value="10000012">儒雅香型</option>
+                                    <option value="10000013">其它香型</option>
+                                    <else/>
+                                    <option value="20000000">威士忌</option>
+                                    <option value="20000001">进口啤酒</option>
+                                    <option value="20000002">朗姆酒</option>
+                                    <option value="20000003">配制酒</option>
+                                    <option value="20000004">白兰地</option>
+                                    <option value="20000005">金酒</option>
+                                    <option value="20000006">伏特加</option>
+                                    <option value="20000007">国产啤酒</option>
+                                    </if>
+                                </select>
+                            </span>                           
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">产地：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="reg" id="J_addWineReg" value="{$res.region}" />
+                            </span>
+                        </div>
+                         <div class="tableTr">
+                            <i class="i">标题：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="tit" id="J_addWineTit" value="{$res.title}" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>酒精度：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt inp_txt_short" id="J_addWineAcd" name="acd" value="{$res.alcohol_degree}" /> 度
+                            </span>                            
+                        </div>
+                        <div class="tableTr">
+                            <i class="i"><em>*</em>容量：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt inp_txt_short" id="J_addWineCpt" name="cpt" value="{$res.capacity}" /> ML
+                            </span>                            
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">包装规格：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="spt" id="J_addWineSpt" value="{$res.specificat}" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">产品特征：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="ftr" id="J_addWineFtr" value="{$res.product_features}" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">酒厂：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="hos" id="J_addWineHos" value="{$res.brew_house}" />
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i">原料：</i>
+                            <span class="span">
+                                <input type="text" class="inp_txt" name="raw" id="J_addWineRaw" value="{$res.raw_material}" />
+                            </span>
+                        </div>                        
+                         <div class="tableTr bb1e5e5e5">
+                            <i class="i">批发价：</i>
+                            <span class="span" id="J_wholesalePrice">
+                                <label><input type="radio" name="price1" class="b2b_radio" <if condition="$res.wholesale_price eq false">checked="checked"</if> value="0" /> 面议</label>
+                                <input type="radio" name="price1" class="b2b_radio" value="1" <if condition="$res.wholesale_price neq false">checked="checked"</if> /><input type="text" name="price" id="J_addWinePrice" class="price_txt" <if condition="$res.wholesale_price neq false">value="{$res.whole_price}"</if> />元
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i va_t">荣誉奖项：</i>
+                            <span class="span">
+                                <textarea name="onr" class="inp_textarea" id="J_addWineOnr">{$res.honor_awards}</textarea>
+                            </span>
+                        </div>
+                        <div class="tableTr">
+                            <i class="i va_t">酿造工艺：</i>
+                            <span class="span">
+                                <textarea name="prs" class="inp_textarea" id="J_addWinePrs">{$res.brew_process}</textarea>
+                            </span>
+                        </div>                        
+                        <div class="tableTr">
+                            <i class="i va_t">图片上传：</i>
+                            <span class="span addwineimgbox" id="J_addWineImg">
+                            <volist name="imgs" id="vo">
+                                <if condition="$vo.img eq false">
+                                <a href="javascript:void(0)" class="addwineimg">
+                                    <img src="__IMAGE__<switch name="vo['img_cat']">
+                                                            <case value="1">upImg03.jpg</case>
+                                                            <case value="2">upImg04.jpg</case>
+                                                            <case value="3">upImg05.jpg</case>
+                                                        </switch>" />
+                                </a>
+                                <else/>
+                                <a href="javascript:void(0)" class="addwineimg"><img src="__UPLOAD__images/{$vo.img}" /></a>
+                                </if>
+                            </volist>
+                            </span>
+                            <volist name="imgs" id="vo">
+                            <input type="hidden" name="cat{$vo.img_cat}" id="J_cat{$vo.img_cat}" value="{$vo.img}">
+                            </volist>
+                        </div>
+                    </div>
+                    <p class="btnP">
+                         <a href="javascript:void(0)" id="J_addBjLjBtn" class="yellowBtn">确认添加</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
+    </div>
+    <script type="text/javascript">
+        var imgpath = "__IMAGE__";
+        var action = "__ROOT__/Product/doUpdateBjlj";
+        var uploadurl = "__ROOT__/Product/uploadWineImg";
+    </script>
+    <script src="__JS__jquery-1.11.1.min.js"></script>
+    <script src="__JS__ajaxupload.js"></script>
+    <script src="__JS__b2b.js"></script>
+</body>
+</html>
