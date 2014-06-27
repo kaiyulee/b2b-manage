@@ -1,6 +1,6 @@
 B2B Second Period
 // 本地测试
-URL: b2b.wine.cn.local,模板中用__ROOT__代替
+URL: b2b.google.local,模板中用__ROOT__代替
 
 1 展铺装修
 1.1 首页设置: __ROOT__/Setting/indexset   
