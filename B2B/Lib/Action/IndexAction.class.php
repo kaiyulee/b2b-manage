@@ -27,9 +27,9 @@ class IndexAction extends BaseAction {
 		}
 		$msg = array();
 		if (false !== $res) {
-			$msg['msg'] = 1;
+			$msg['st'] = 1;
 		} else {
-			$msg['msg'] = 0;
+			$msg['st'] = 0;
 		}
 		echo json_encode($msg);
 	}

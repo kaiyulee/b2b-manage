@@ -45,8 +45,8 @@ class ProductAction extends BaseAction {
 		$mo = D('MerchantWine');
 		$ymId = cookie('ym_user_uid');
 		import('ORG.Util.Page');
-		$count = $mo->field('id')->where('ym_id='.$ymId)->count();
-		$Page = new Page($count,10);
+		$proCount = $mo->field('id')->where('ym_id='.$ymId)->count();
+		$Page = new Page($proCount,10);
 		$Page->setConfig('theme','%upPage% %first% %linkPage% %downPage% %end%');
 		$show = $Page->show();
 		$res = $mo->where('ym_id='.$ymId)
@@ -74,19 +74,20 @@ class ProductAction extends BaseAction {
 			$res[$key]['country_name'] = $countryName['cname'];
 			$res[$key]['region_name'] = $regionName['cname'];
 		}
+		$brdCount = $mo->query('select count(1) as cnt from (select id from __TABLE__ group by brand) A');
+		$countArr = array('procount' => $proCount, 'srvcount' => $srvCount, 'brdcount' => $brdCount[0]['cnt']);
+		$this->assign($countArr);
 		$this->assign('res',$res);
-		$this->assign('srvcount',$srvCount);
-		$this->assign('procount',$count);
 		$this->assign('count',$count);
 		$this->assign('page',$show);
 		$this->display('myproduct');
 	}
 
 	public function myService() {
-		$mo = M();
+		$mo = M('MerchantWine');
 		import('ORG.Util.Page');
-		$proCount = $mo->table('b2b_merchant_wine')->where('ym_id='.cookie('ym_user_uid'))->count();
-		$count = $mo->table('b2b_merchant_service')->field('id')->where('ym_id='.cookie('ym_user_uid'))->count();
+		$proCount = $mo->where('ym_id='.cookie('ym_user_uid'))->count();
+		$srvCount = $mo->table('b2b_merchant_service')->field('id')->where('ym_id='.cookie('ym_user_uid'))->count();
 		$Page = new Page($srvCount,10);
 		$Page->setConfig('theme','%upPage% %first% %linkPage% %downPage% %end%');
 		$show = $Page->show();
@@ -94,16 +95,33 @@ class ProductAction extends BaseAction {
 		          ->where('ym_id='.cookie('ym_user_uid'))
 		          ->limit($Page->firstRow.','.$Page->listRows)
 		          ->select();
+		$brdCount = $mo->query('select count(1) as cnt from (select id from __TABLE__ group by brand) A');
+		$countArr = array('procount' => $proCount, 'srvcount' => $srvCount, 'brdcount' => $brdCount[0]['cnt']);
+		$this->assign($countArr);
 		$this->assign('res',$res);
-		$this->assign('procount',$proCount);
-		$this->assign('srvcount',$count);
 		$this->assign('page',$show);
 		$this->display();
 	}
 	public function myBrand() {
-		$mo = M();
-
-		$this->display();
+		$mo = D('MerchantWine');
+		$ymId = cookie('ym_user_uid');
+		$brand = $mo->field('brand')->where('ym_id='.$ymId)->group('brand')->select();
+		foreach ($brand as $key => $value) {
+			$brandName = $mo->table('jiuku_winery')
+		                    ->field('fname,cname')
+		                    ->where('id = ' . $value['brand'] . ' and status = 1 and is_del = "-1"')
+		                    ->find();
+			$brand[$key]['fname'] = $brandName['fname'];
+			$brand[$key]['cname'] = $brandName['cname'];
+		}
+		// dump($brand);exit;
+		$proCount = $mo->table('b2b_merchant_wine')->where('ym_id='.cookie('ym_user_uid'))->count();
+		$srvCount = $mo->table('b2b_merchant_service')->field('id')->where('ym_id='.cookie('ym_user_uid'))->count();
+		$brdCount = $mo->query('select count(1) as cnt from (select id from __TABLE__ group by brand) A');
+		$countArr = array('procount' => $proCount, 'srvcount' => $srvCount, 'brdcount' => $brdCount[0]['cnt']);
+		$this->assign($countArr);
+		$this->assign('res',$brand);
+		$this->display('mybrand');
 	}
 	public function chooseCategory() {
 		$this->display('step1');
@@ -144,11 +162,9 @@ class ProductAction extends BaseAction {
 	public function selectWine() {
 		$country = A('Common')->getCountry();
 		$wtype = A('Common')->getWineType();
-		$brand = A('Common')->getBrand();
 		// dump($country);exit;
 		$this->assign('country',$country);
 		$this->assign('wtype',$wtype);
-		$this->assign('brand',$brand);
 		$this->display('step2_search_to_add_wine');
 	}
 
@@ -368,9 +384,9 @@ class ProductAction extends BaseAction {
 			$flag = $mo->add();
 		}
 		if ($flag) {
-			$msg['msg'] = 1;
+			$msg['st'] = 1;
 		} else {
-			$msg['msg'] = 0;
+			$msg['st'] = 0;
 		}
 		$this->ajaxReturn($msg);
 	}
@@ -578,12 +594,6 @@ class ProductAction extends BaseAction {
 		}
 		$list = $mo->where('ym_id='.$ymId)->select();	
 		return $list;
-	}
-
-	public function getMyBrand(){
-		$mo = D('MerchantWine');
-		$ymId = cookie('ym_user_uid');
-		
 	}
 
 	public function uploadWineImg() {

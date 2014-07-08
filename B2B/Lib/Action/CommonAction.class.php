@@ -4,6 +4,7 @@ class CommonAction extends BaseAction {
 	public function __construct(){
 		static::$mod = M();
 	}
+
 	public function upload(){
 		import('ORG.Net.UploadFile');
 		$upload = new UploadFile();// 实例化上传类
@@ -85,5 +86,11 @@ class CommonAction extends BaseAction {
 
 	public function getYears(){
 		return array_reverse(range(1900,date('Y')));
+	}
+
+	public function logout() {
+		cookie('ym_user_uid',null);
+		header("location:".C('TMPL_PARSE_STRING.__YM__').'/index.php/User/loginout');
+		exit;
 	}
 }

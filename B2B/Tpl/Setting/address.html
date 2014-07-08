@@ -18,13 +18,13 @@
                     	<div class="tableTr">
                             <i class="i">企业地址：</i>
                             <span class="span">
-                                <select class="inp_sel H_selProvince" name="selProvince" id="J_provinceList">
+                                <select class="inp_sel inp_sel_region H_selProvince" name="selProvince" id="J_provinceList">
                                     <option value="0">--省份---</option>
                                     <for start="1" end="9">
                                         <option value="{$i}">--X{$i}省---</option>
                                     </for>
                                 </select>
-                                <select class="inp_sel H_selCity" name="selCity">
+                                <select class="inp_sel inp_sel_region H_selCity" name="selCity">
                                     <option value="0">--市/区---</option>
                                 </select>    
                                 <input type="text" name="Detailed" class="inp_txt" value="" />
@@ -59,10 +59,10 @@
                         <div class="tableTr">
                             <i class="i">企业地址：</i>
                             <span class="span">
-                                <select class="inp_sel H_selProvince" name="selProvince">
+                                <select class="inp_sel inp_sel_region H_selProvince" name="selProvince">
                                     <option value="0">--省份---</option>                                    
                                 </select>
-                                <select class="inp_sel H_selCity" name="selCity">
+                                <select class="inp_sel inp_sel_region H_selCity" name="selCity">
                                     <option value="0">--市/区---</option>
                                 </select>
                                 <input type="text" name="Detailed" class="inp_txt" value="" />
@@ -115,7 +115,7 @@
     </div>
     <script>
         var action = "__ROOT__/Product/doAddAddress"; 
-        var getRegByCtry = "";
+        var getCity = "";
         var proList = document.getElementById("J_provinceList").innerHTML;
     </script>
     <script src="__JS__jquery-1.11.1.min.js"></script>    

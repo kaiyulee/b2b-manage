@@ -28,35 +28,36 @@
                 </div>
                 <div>
                 	<div class="tab_navBox">
-                        <a href="__ROOT__/Product/">我的产品(<i></i>)</a>
-                        <a href="__ROOT__/Product/Myservice">我的服务(<i></i>)</a>
-                        <a href="__ROOT__/Product/Mybrand" class="active">全部品牌(<i></i>)</a>
+                        <a href="__ROOT__/Product/">我的产品(<i>{$procount}</i>)</a>
+                        <a href="__ROOT__/Product/Myservice">我的服务(<i>{$srvcount}</i>)</a>
+                        <a href="__ROOT__/Product/Mybrand" class="active">全部品牌(<i>{$brdcount}</i>)</a>
                     </div>
                     <div class="b2bTable" id="J_productList">
-                    <!-- <table cellpadding="0" cellspacing="0" width="100%">
+                    <table cellpadding="0" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th width="470">名称</th>
-                                <th>类型</th>
-                                <th>操作</th>
+                                <!-- <th>类型</th>
+                                <th>操作</th> -->
                             </tr>
                         </thead>
                         <tbody>
+                            <volist name="res" id="vo">
                             <tr>
                                 <td align="left">
                                  <div class="table_proBox">
-                                    <img class="theImg" src="__IMAGE__pic01.jpg" />
+                                    <!-- <img class="theImg" src="__IMAGE__pic01.jpg" /> -->
                                     <span>
-                                        <a href="#">柏图斯家族波尔多红葡萄酒<br />Selection Jean-Pierre Moueix</a><br />
-                                        <i><em>法国/波尔多</em></i>
+                                        <a>{$vo.fname}<br />{$vo.cname}</a><br />
                                     </span>
                                  </div>
                                 </td>
-                                <td align="center">红葡萄酒</td>
-                                <td align="center"><a href="#" class="addBtn">添加/修改属性</a> <a href="#" class="removeBtn" data-type="0" data-id="1">删除</a></td>
+                                <!-- <td align="center">红葡萄酒</td>
+                                <td align="center"><a href="#" class="addBtn">添加/修改属性</a> <a href="#" class="removeBtn" data-type="0" data-id="1">删除</a></td> -->
                             </tr>
+                            </volist>
                         </tbody>
-                    </table> -->
+                    </table>
                     </div>
                     
                     <p class="b2b_pageBox">
