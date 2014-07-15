@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<form action="{:U('Home/Setting/uploadIndexImg')}" enctype="multipart/form-data" method="post">
+	<input id="" type="file" name="photo">
+	<input type="submit" value="提交">
+</form>
+<form action="{:U('Home/Setting/setPageContent')}" method="post">
+	<select id="" name="channel">
+		<option value="1">主页</option>
+		<option value="2">企业介绍</option>
+		<option value="3">招商政策</option>
+	</select>
+	<textarea id="pagecontent" name="pagecontent" cols="30" rows="10"></textarea>
+	<input type="submit" value="Submit">
+</form>
+</body>
+</html>

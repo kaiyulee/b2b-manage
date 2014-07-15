@@ -36,12 +36,18 @@ class SettingAction extends BaseAction {
 		switch($channel){
 			case 1:
 				$channel = '主页';
+				$htmlfile = 'company_'.$ymId;
+				$htmltemplate = 'TemplateForCompany:index';
 				break;
 			case 2:
 				$channel = '企业介绍';
+				$htmlfile = 'company_'.$ymId.'_intro';
+				$htmltemplate = 'TemplateForCompany:intro';
 				break;
 			case 3:
 				$channel = '招商政策';
+				$htmlfile = 'company_'.$ymId.'_agencies';
+				$htmltemplate = 'TemplateForCompany:agencies';
 				break;
 		}
 		$data = $Ym->table('b2b_merchant_page')->where('ym_id='.$ymId.' AND channel="'.$channel.'"')->find();
@@ -82,10 +88,17 @@ class SettingAction extends BaseAction {
 				$msg['msg'] = '失败';
 			}
 		}
+		// 生成静态页面 
+		$htmlpath = $_SERVER['DOCUMENT_ROOT'].'/Html/company/';
+		$aside = $Ym->table('ym_users_qy A')->join('ym_users B on A.id=B.id')->where('A.id='.$ymId)->find();
+		$this->assign($aside);
+		$this->assign('banner',$pageImg);
+		$this->assign('content',$pageContent);
+		$this->buildHtml($htmlfile,$htmlpath,$htmltemplate);
 		echo json_encode($msg);
 	}
 	/**
-	 * 首页设置上传图片部分.里面作两种请款判断,一是,图片对应记录已存在则更新,否则添加
+	 * 首页设置上传图片部分.里面作两种情况判断,一是,图片对应记录已存在则更新,否则添加
 	 */
 	public function uploadIndexImg(){
 		import('ORG.Net.UploadFile');

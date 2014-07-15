@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>逸香网在线酒展频道-商家主页</title>
+</head>
+<link href="__CSS__tmpl/main.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__tmpl/mb05.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__tmpl/list.css" rel="stylesheet" type="text/css" />
+<script src="__JS__jquery-1.11.1.min.js"></script>
+<body>
+<input type="hidden" name="cpNo" value="<[cpNo]>">
+<include file="Common:header_all"/>
+<!--hearder-->
+<div id="mb05_header">
+    <div class="w1003">
+        <div class="mb05_toplogo">
+            <h1><a href="index.html">
+                <!-- <img src="../../images/mb05_logo.gif" alt=""> -->
+            </a></h1>
+            <div class="mb05_cpname">{$qy_name}</div>
+            <div class="mb05dj_ico"></div>
+        </div>
+        <ul class="mb05_nav">
+            <li class="active"><a href="__ROOT__/Company/company_{$id}.html">主页</a></li>
+            <li><a href="__ROOT__/Company/company_{$id}_intro.html">企业介绍</a></li>
+            <li><a href="__ROOT__/Company/company_{$id}_agencies.html">招商政策</a></li>
+            <li class="last"><a href="__ROOT__/Cproduct/plist/id/{$id}">产品及服务</a></li>
+        </ul>
+    </div>  
+</div>
+<!--containe-->
+<div class="w1003 mb_05pb30">
+    <div class="mb05_banner">
+        <img src="__UPLOAD__/images/{$banner}" alt="">
+    </div>
+    <div class="mb05_clear">
+        <div class="mb05_minleft">
+            <h2 class="pb10"><img src="__IMAGE__mb05_lefttitle3.gif" alt="产品分类"></h2>
+                <ul class="mb05_cpnav mb05_clear mb_05pb30">
+                    <li class="cur"><a href="#">红酒</a></li>
+                </ul>
+                    <h2><img src="__IMAGE__zb_firmleftTit_03.gif" /></h2>
+                    <p class="zb_main_l_p">关 注 度： <span id="cp-focus"><img src="__IMAGE__zb_star.gif" /><img src="__IMAGE__zb_star.gif" /><img src="__IMAGE__zb_star.gif" /><img src="__IMAGE__zb_star.gif" /><img src="__IMAGE__zb_star.gif" /><input type="hidden" value=""/></span></p>
+                    <p class="zb_main_l_p">业务范围：<span id="cp-range">{$qy_support}</span></p>
+                    <p class="zb_main_l_p">主营产品：<span id="cp-feature"></span></p>
+                    <p class="zb_main_l_p mb10">企业规模：<span id="cp-scale">{$qy_guimo}</span></p>
+                    <h2><img src="__IMAGE__zb_firmleftTit_02.gif" /></h2>
+                    <p class="zb_main_l_p">联系人：<span id="cp-contact">{$qy_contacts}</span></p>
+                    <p class="zb_main_l_p">电话：<span id="cp-tel"></span>{$qy_moblie}</p>
+                    <p class="zb_main_l_p">邮箱：<span id="cp-email"></span>{$username}</p>
+                    <p class="zb_main_l_p">地址：<span id="cp-addr"></span>{$qy_address}</p>
+                    <p class="zb_main_l_p">其他联系方式：<span id="cp-ocontact"></span></p>
+        </div>
+        <div class="mb05_minright">
+            {$content}
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div id="footer_all" style="margin-top: -2px;">
+       <div class="footer">
+           <span style="color:#fff;">逸香网 版权所有 Copyright 2010-2020 All Rights Reserved.</span>
+       </div>
+</div>
+</body>
+</html>

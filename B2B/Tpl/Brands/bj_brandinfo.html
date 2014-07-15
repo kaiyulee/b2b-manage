@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>逸香网在线酒展品牌详情</title>
+</head>
+<link href="__CSS__main.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__list.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__index.css" rel="stylesheet" type="text/css" />
+<body>
+<!--hearder-->
+<include file="Common:header_all"/>
+<!--containe-->
+<div id="containe">
+      <div class="content">
+	        <div class="content_header clearfix">
+			     <a href="index.html" class="content_header_logo">
+				     <img src="__IMAGE__logo.jpg" width="225" height="56"/>
+				 </a>
+				 <div class="content_con">
+				      <div class="content_con_top clearfix">
+						  <div class="content_con_top_left">
+							  <h4>商家</h4>
+							  <ul>
+									<li>品牌</li>
+									<li>产品</li>
+									<li>服务</li>
+									<li>酒商</li>
+									<li>代理商</li>
+							  </ul>
+						  </div>
+						  <input type="text" id="text_526"/>
+						  <input type="button" value="搜 索" id="button_526"/>
+				     </div>
+					 <div class="content_con_bottom">
+					      热门搜索：<a href="#">波尔多</a> | <a href="#">拉菲</a> | <a href="#">奔富</a> | <a href="#">红魔鬼</a> | <a href="#">起泡酒</a> | <a href="#">精品葡萄酒</a>
+					 </div>
+				 </div>
+				 <a href="#"  class="content_header_log">
+				      <img src="__IMAGE__pic_526.gif" height="60"/>
+				 </a>
+			</div>
+	  </div>
+	  <div class="main">
+	        <div class="main_top clearfix">
+			       <div class="main_top_left">
+				        <span>国内馆</span>
+				   </div>
+				   <ul class="subnav">
+				        <li>
+						     <a href="__ROOT__">展销大厅</a>
+						</li>
+						<li class="subnav_li">
+						    <a href="__ROOT__/Brands"> 品 牌 </a>
+						</li>
+						<li>
+						     <a href="__ROOT__/Proandserv">产品/服务</a>
+						</li>
+						<li>
+						     <a href="__ROOT__/Company">酒商/代理商</a>
+						</li>
+				   </ul>
+			</div>
+	<div class="zb_main clearfix">
+      	<div class="zb_main_l">
+             <ul class="zb_main_l_ul">
+             	<li class="bt0"><a href="__ROOT__/Brands">红酒</a></li>
+				<li><a href="__ROOT__/Brands/bj" class="active">白酒</a></li>
+				<li><a href="__ROOT__/Brands/tool">酒具</a></li>
+             </ul>
+             <h2><img src="__IMAGE__brand_526.gif"/></h2>
+			  <ul class="ld_sider clearfix">
+			       <li>
+                    <h3><a href="/company0001/pd0001.html"><img src="__IMAGE__ro_526.gif" height="80"/></a></h3>
+						<h4 class="ld_main_l_h4">百利 Baileys</h4>
+				   </li>
+				    <li>
+                    <h3><a href="/company0001/pd0001.html"><img src="__IMAGE__ro_526.gif" height="80"/></a></h3>
+						<h4 class="ld_main_l_h4">百利 Baileys</h4>
+				   </li>
+				  <li>
+                    <h3><a href="/company0001/pd0001.html"><img src="__IMAGE__ro_526.gif" height="80"/></a></h3>
+						<h4 class="ld_main_l_h4">百利 Baileys</h4>
+				   </li>
+			  </ul>
+        </div>
+        <div class="zb_main_r">
+		      <h4 class="mm_h4">{$brand.cname} {$brand.fname}</h4>
+			  <div class="mm_div clearfix">
+			        <div class="mm_div_left">
+					    {$brand.content}
+					</div>
+					<div class="mm_div_right">
+					     <img src="__IMAGE__bl_527.gif"/>
+				         <span>百利 Baileys</span>
+					</div>
+			  </div>
+			  <div class="div_52701">
+			      <h4 class="h4_527">品牌代理商</h4>
+			  </div>
+			  <ul class="ul_527">
+			  		<volist name="company" id="comp">
+			         <li>
+					       <div class="ul_527_left">
+						         <p>
+								      <span>推荐代理商</span><em>{$comp.qy_name}</em><img src="__IMAGE__renzheng.gif"/>
+								 </p>
+								 <p>
+								      <span>业务范围</span><em>{$comp.qy_support}</em>
+								 </p>
+								 <p>
+								      <span>主营产品</span><em>红葡萄酒、白葡萄酒\名庄酒、酒具</em>
+								 </p>
+								 <p>
+								      <span>产品数量</span><em>{$comp.pronum}款</em>
+								 </p>
+								 <p>
+								      <span>联系方式</span><em><a href="#">查看</a></em>
+								 </p>
+						   </div>
+						   <div class="ul_527_right"><img src="__IMAGE__bl_527.gif"/></div>
+					 </li>
+					 </volist>
+			  </ul>
+        </div>
+      </div>
+</div>
+<!--footer-->
+<include file="Common:footer_all"/>

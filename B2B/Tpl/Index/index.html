@@ -2,52 +2,513 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>商家后台 -- 首页</title>
-<link rel="stylesheet" type="text/css" href="__CSS__b2b_main.css" />
-</head>
+<title>逸香网在线酒展频道 国内最大的葡萄酒B2B商机平台</title>
+<meta name="keywords" content="酒水网 名酒招商 白酒招商 红酒招商 糖酒会 名酒代理 白酒代理 红酒代理" />
+<meta name="description" content="逸香网在线酒展频道，永不落幕的网上糖酒会， 白酒、红酒24小时在线招商，让优秀的酒水企业脱印而出。商务合作：010-52713099-8061
+。" />
 
+</head>
+<link href="__CSS__main.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__list.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__index.css" rel="stylesheet" type="text/css" />
+<script src="__JS__jquery-1.11.1.min.js"></script>
+<script src="__JS__index.js"></script>
+<script type="text/javascript" src="__JS__jquery.SuperSlide.2.1.1.js"></script>
 <body>
-    <include file="Common:delpop" />
-    <include file="Common:titlebar" />
-    <div class="b2b_main clearfix">
-        <include file="Common:menu"/>
-        <div class="b2b_main_r">
-        	<div class="indexBox">
-                <div class="indexBox_topBox">
-                	<div class="indexBox_topBox_l">
-                    	<p class="btn"><a href="#"><img src="__IMAGE__picBtn_01.jpg" /></a></p>
-                        <p class="size">级别：<span class="size_span"><img src="__IMAGE__jin_ico.png" class="size_ico" />金牌代理商</span>   <a href="#">升级续费</a></p>
-                        <p class="time">到期时间：<span>2014-12-12</span></p>
-                    </div>
-                    <div class="indexBox_topBox_r">
-                    	<p class="indexBox_topBox_r_p1">信息完整度： <span class="runbox"><em style="width:36%;">36%</em></span></p>
-                        <p class="indexBox_topBox_r_p2">完善以下信息，您的企业将获得更多关注：</p>
-                        <p class="indexBox_topBox_r_p3"><a href="#">招商政策</a>   <a href="#">我的产品/服务</a></p>
+<!--hearder-->
+<include file="Common:header_all"/>
+<!--containe-->
+<div id="containe">
+      <div class="content">
+	        <div class="content_header clearfix">
+			     <a href="index.html" class="content_header_logo">
+				     <img src="__IMAGE__logo.jpg" width="225" height="56"/>
+				 </a>
+				 <div class="content_con">
+				      <div class="content_con_top clearfix">
+						  <div class="content_con_top_left">
+							  <h4>商家</h4>
+							  <ul>
+									<li>品牌</li>
+									<li>产品</li>
+									<li>服务</li>
+									<li>酒商</li>
+									<li>代理商</li>
+							  </ul>
+						  </div>
+						  <input type="text" id="text_526"/>
+						  <input type="button" value="搜 索" id="button_526"/>
+				     </div>
+					 <div class="content_con_bottom">
+					      热门搜索：<a href="#">波尔多</a> | <a href="#">拉菲</a> | <a href="#">奔富</a> | <a href="#">红魔鬼</a> | <a href="#">起泡酒</a> | <a href="#">精品葡萄酒</a>
+					 </div>
+				 </div>
+				 <a href="#"  class="content_header_log">
+				      <img src="__IMAGE__pic_526.gif" height="60"/>
+				 </a>
+			</div>
+	  </div>
+	  <div class="main">
+	        <div class="main_top clearfix">
+			       <div class="main_top_left">
+				        <span>国内馆</span>
+				   </div>
+				   <ul class="subnav">
+				        <li class="subnav_li">
+						     <a href="__ROOT__">展销大厅</a>
+						</li>
+						<li>
+						    <a href="__ROOT__/Brands"> 品 牌 </a>
+						</li>
+						<li>
+						     <a href="__ROOT__/Proandserv">产品/服务</a>
+						</li>
+						<li>
+						     <a href="__ROOT__/Company">酒商/代理商</a>
+						</li>
+				   </ul>
+			</div>
+			<!--bobo-->
+			<div class="nav_jf">
+            	<div class="clearfix">
+            		<ul class="nav_jf_l">
+                    	<li class="f1"><a href="#mainf1" ><span>F1</span><em>品牌商家</em></a><i class="hot_01"></i></li>
+                        <li class="f2"><a href="#mainf2" ><span>F2</span><em>品牌专区</em></a></li>
+                        <li class="f3"><a href="#mainf3" ><span>F3</span><em>热销专区</em></a></li>
+                        <li class="f4"><a href="#mainf4" ><span>F4</span><em>新进商家</em></a></li>
+                        <li class="f5"><a href="#mainf5" ><span>F5</span><em>产业观察</em></a></li>
+                        <li class="f6"><a href="#mainf5" ><span>F6</span><em>成功案例</em></a></li>
+                    </ul>
+                    <div class="nav_jf_r">
+                    	<div class="nav_jf_rt clearfix">
+                        	<div class="pic_nav">
+							       <div class="pic_nav_top">
+							
+									 <a href="company0003/" target="_blank"><img src="__IMAGE__haonai.jpg" /></a>
+									 <a href="company0002/" target="_blank"><img src="__IMAGE__hualong.jpg" /></a>
+							         <a href="company0001/" target="_blank"><img src="__IMAGE__hzf.jpg" /></a>
+							         <a href="company0004/" target="_blank"><img src="__IMAGE__hl.jpg" /></a>
+								   </div>
+								   <ol class="pic_nav_bottom">
+								       <li class="active"></li>
+									   <li></li>
+									   <li></li>
+									   <li></li>
+								   </ol>
+							</div>
+                            <ul class="clearfix">
+                            	<li><a href="company0005/" target="_blank">最好的纳帕谷葡萄酒</a></li>
+                                <li><a href="company0006/" target="_blank">嘉酩酒业</a></li>
+                                <li><a href="company0007/" target="_blank">独具锐意葡萄酒市场开拓先锋</a></li>
+                                <li><a href="company0008/" target="_blank">法国葡萄酒进口专家</a></li>
+                                <li><a href="company0009/" target="_blank">世博会食品零售合作伙伴</a></li>
+                                <li><a href="company0010/" target="_blank">品诺酒业</a></li>
+                                <li><a href="company0011/" target="_blank">首彩酒业</a></li>
+                                <li><a href="company0012/" target="_blank">全球最好产区葡萄酒</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav_jf_rb clearfix">
+                        	<p>最新消息：</p>
+							<div class="txtMarquee-left">
+								<div class="bd">
+									<ul class="infoList">
+										<li><a href="company0005/" target="_blank">最新入驻：好沃山酒业</a></li>
+                                <li><a href="company0006/" target="_blank">最新入驻：嘉酩酒业</a></li>
+                                <li><a href="company0007/" target="_blank">最新入驻：名特酒业</a></li>
+                                <li><a href="company0008/" target="_blank">最新入驻：吉喜福酒业</a></li>
+                                <li><a href="company0009/" target="_blank">最新入驻：亨邑德酒业</a></li>
+                                <li><a href="company0010/" target="_blank">最新入驻：品诺酒业</a></li>
+                                <li><a href="company0011/" target="_blank">最新入驻：首彩酒业</a></li>
+                                <li><a href="company0012/" target="_blank">最新入驻：云门酒业</a></li>
+									</ul>
+								</div>
+	                 	 </div>
+				<script type="text/javascript">
+				 var ary = location.href.split("&");
+				jQuery(".txtMarquee-left").slide( {
+					mainCell:".bd ul",
+					autoPlay:true,
+					effect:'leftMarquee',//ary[1],
+					vis:3,//ary[2],
+					interTime:50,//ary[3],
+					opp:false,//ary[4],
+					pnLoop:'true',//ary[5],
+					trigger:'click'//ary[6],
+				});
+				</script>
+                        </div>
                     </div>
                 </div>
-                <h3 class="indexBox_h3"><strong>客户留言</strong> <span>本周共被浏览<em>33</em>次</span></h3>
-                <ul class="indexBox_ul">
-                    <volist name="list" id="vo">
-                        <li data-id="{$vo.id}">
-                            <h4><span>{$vo.cmtime}</span> <a href="javascript:void(0)" class="h_delmsg">删除</a></h4>
-                            <p>
-                                <span>姓名：<em>{$vo.name}</em></span>
-                                <span>电话：<em>{$vo.tel}</em></span>
-                                <span>留言：<em>{$vo.content}</em></span>
-                            </p>
-                        </li>
-                    </volist>
-                </ul>
             </div>
-        </div>
-    </div>
-    <div class="footer">
-        Copyright 2012-2014 wine.cn版权所有 中华人民共和国电信与信息服务业务经营许可编号：京ICP备12004270号-5
-    </div>
-    <script>
-        var delAction = "__ROOT__/Index";
-    </script>
-    <script src="__JS__jquery-1.11.1.min.js"></script>
-    <script src="__JS__b2b.js"></script>
-</body>
-</html>
+			<!--f1-->
+			<div class="mainf1" id="mainf1">
+			      <div class="f_hear clearfix">
+				        <h3>F1 品牌商家</h3>
+						<i>榜样的力量 成单的保障</i>
+						<a href="vip.html" target="_blank">如何成为品牌商家</a>
+						<span>ECOMMEND THE <em>BUSINESSMAN</em></span>
+				  </div>
+				  <div class="f_bottom">
+				        <ul class="f1_ul clearfix">
+						     
+							 <li  class="header_01">
+							       <a href="company0002/" target="_blank">
+								       <img src="company0002/cp/a.jpg" width="220" height="160"/>
+									   <h4>1919酒类直供</h4>
+									  
+									  <p class="p-1">业务范围：<em>直营连锁、移动O2O和B2C、CRM会员管理</em></p>
+									  <p>推荐理由：<em>16年传统酒水行业营销经验，以8年业绩增长超百倍的市场表现，国内酒类直营连锁销售行业的领军企业。1919作为中国酒水行业创新、快捷、高效、低成本模式的创造者，其核心定位在于"供应链管理+提供服务"，致力打造从厂家到消费者之间最快捷、成本最低、推广效率最高的集订单、采供、物流三位一体的专业数字化服务平台</em></p>
+								   </a>
+					   </li>
+							 							  <li>
+							       <a href="company0004/" target="_blank">
+								       <img src="company0004/cp/a.jpg" width="220" height="160"/>
+									   <h4>华龙酒业</h4>
+									  
+									  <p class="p-1">业务范围：<em>代理、批发、加盟</em></p>
+									  <p>推荐理由：<em>华龙酒业集生产、销售、名酒代理、名酒连锁为一体的大型酒类企业，已成为中国酒业连锁行业中具有强大竞争力和高速成长性的品牌，经过二十多年的发展，拥有北京，哈尔滨等7家子公司，62家直营店，公司连锁店近300家，在全国二十二个省市拥有华龙酒业的门店，员工总数已逾千人。</em></p>
+								   </a>
+							 </li>
+		
+        <li>
+							      <a href="company0001/" target="_blank">
+								       <img src="company0001/cp/a.jpg" width="220" height="160"/>
+								   <h4>红樽坊 Ruby Red Fine Wine</h4>
+									  
+									  <p class="p-1">业务范围：<em>代理、加盟、批发</em></p>
+									  <p>推荐理由：<em>红樽坊是中国精品、稀少、优质葡萄酒的专家，坚持努力为顾客在全世界各个传统产区和新兴产地搜寻令人兴奋的口味独特的葡萄酒，不但要质量上乘，同时价格亲民</em></p>
+								   </a>
+						  </li>				
+                          <li class="last_01">
+							       <a href="company0003/" target="_blank">
+								       <img src="company0003/cp/a.jpg" width="220" height="160"/>
+									   <h4>浩奈实业</h4>
+									  
+									  <p class="p-1">业务范围：<em>代理、批发</em></p>
+									  <p>推荐理由：<em>始终坚持运营意大利精品葡萄酒，是浩奈实业可持续发展的坚实基础。浩奈以高品质全系列的产品体系为基础，稳中求进地发展全国经销商网络和高端客户圈，继续稳固日益扩大的国内市场占有率，进而最大化整合意大利精品酒的资源，为国内经销商和终端客户提供垂直立体的服务，使国内消费者享受到最高性价比的意国精品葡萄酒！</em></p>
+								   </a>
+						 </li></ul>
+				  </div>
+				   
+			</div>
+			<!--f2-->
+			<!--<div class="mainf1" id="mainf2">
+			      <div class="f_hear clearfix">
+				        <h3>F2 品牌专区</h3>
+						<span>BRAND <em>ZONE</em></span>
+				  </div>
+				  <div class="f_bottom">
+				        <ul class="f2_ul clearfix">
+						     <li>
+							     <a href="company0004/product_list.html" target="_blank">
+								       <img src="pic/b01.jpg"/>
+									   <span>汾酒</span>
+								  </a>
+					   </li>
+							 <li>
+							      <a href="company0004/product_list.html" target="_blank">
+								       <img src="pic/b02.jpg"/>
+									   <span>郎酒</span>
+								  </a>
+					   </li>
+							 <li>
+							     <a href="company0004/product_list.html" target="_blank">
+								       <img src="pic/b03.jpg"/>
+									   <span>茅台</span>
+								  </a>
+					   </li>
+							 <li>
+							      <a href="company0004/product_list.html" target="_blank">
+								       <img src="pic/b04.jpg"/>
+									   <span>五粮液</span>
+								  </a>
+					   </li>
+							 <li>
+							      <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b05.jpg"/>
+									   <span>芝华士</span>
+								  </a>
+					   </li>
+							 <li>
+							      <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b06.jpg"/>
+									   <span>人头马</span>
+								  </a>
+					   </li>
+							 <li class="lay">
+							     <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b07.jpg"/>
+									   <span>轩尼诗</span>
+								  </a>
+					 </li>
+							  <li>
+							      <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b08.jpg"/>
+									   <span>马爹利</span>
+								  </a>
+					   </li>
+							 <li>
+							     <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b09.jpg"/>
+									   <span>奔富</span>
+								  </a>
+				    </li>
+							 <li>
+							      <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b10.jpg"/>
+									   <span>贺兰山</span>
+								  </a>
+					   </li>
+							 <li>
+							    <a href="company0004/product_list.html" target="_blank">
+								       <img src="pic/b11.jpg"/>
+									   <span>剑南春</span>
+								  </a>
+					   </li>
+							 <li>
+							      <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b12.jpg"/>
+									   <span>杰卡斯</span>
+								  </a>
+					   </li>
+							 <li>
+							     <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b13.jpg"/>
+									   <span>黄尾袋鼠</span>
+								  </a>
+					   </li>
+							 <li class="lay">
+							      <a href="company0002/product_list.html" target="_blank">
+								       <img src="pic/b14.jpg"/>
+									   <span>澳洲阳光</span>
+								  </a>
+							 </li>
+					    </ul>	
+				 </div>
+				   
+			</div>-->
+			<img id="mainf2" style="margin-top:20px;" src="__IMAGE__ss_2.png" width="1003" height="357"/>
+			<!--f3-->
+			<img id="mainf3" style="margin-top:20px;" src="__IMAGE__ss_3.png" width="1003" height="358"/>
+			<!--<div class="mainf1" id="mainf3">
+			      <div class="f_hear clearfix">
+				        <h3>F3 热销酒款</h3>
+						<span>SELL LIKE <em>HOT CAKES</em></span>
+				  </div>
+				  <div class="f_bottom">
+				        <ul class="f3_ul clearfix">
+						     <li class="header_01">
+							      <div class="f3_top">
+										  <a href="company0002/product_list.html" target="_blank" ><img src="pic/p01.jpg" width="180"/></a>
+						      <p class="p_1">活灵魂干红葡萄酒</p>
+										  <p>Almaviva </p>
+										  <p>产地：智利</p>
+										  <span><a href="company0002/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li>
+							       <div class="f3_top">
+										  <a href="company0002/product_list.html" target="_blank"><img src="pic/p02.jpg" width="180"/></a>
+								     <p class="p_1">青松晚收维达尔白葡萄酒</p>
+										  <p>Crooked Pine</p>
+										  <p>产地：加拿大</p>
+										  <span><a href="company0002/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li>
+							       <div class="f3_top">
+										  <a href="company0002/product_list.html" target="_blank"><img src="pic/p03.jpg" width="180"/></a>
+								     <p class="p_1">奔富酒园BIN8加本力设拉子干红葡萄酒</p>
+										  <p>Penfolds Bin8</p>
+										  <p>产地：澳洲</p>
+										  <span><a href="company0002/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li>
+							       <div class="f3_top">
+										  <a href="company0002/product_list.html" target="_blank"><img src="pic/p04.jpg" width="180"/></a>
+								     <p class="p_1">张裕大师级解百纳干红</p>
+										  <p>Chang Yu</p>
+										  <p>产地：中国</p>
+										  <span><a href="company0002/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li class="last_01">
+							      <div class="f3_top">
+										  <a href="company0003/product_list.html" target="_blank"><img src="pic/p05.jpg" width="180"/></a>
+								    <p class="p_1">西施佳雅</p>
+										  <p>Sassicaia</p>
+										  <p>产地：意大利</p>
+										  <span><a href="company0003/">查看代理商</a></span>
+								  </div>
+							 </li>
+							  <li class="header_01">
+							       <div class="f3_top">
+										  <a href="company0003/product_list.html" target="_blank"><img src="pic/p06.jpg" width="180"/></a>
+								     <p class="p_1">西施小教堂</p>
+										  <p>Guidalberto</p>
+										  <p>产地：意大利</p>
+										  <span><a href="company0003/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li>
+							       <div class="f3_top">
+										  <a href="company0003/product_list.html" target="_blank"><img src="pic/p07.jpg" width="180"/></a>
+								     <p class="p_1">天娜干红</p>
+										  <p>Tignanello</p>
+										  <p>产地：意大利</p>
+										  <span><a href="company0003/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li>
+							       <div class="f3_top">
+										  <a href="company0003/product_list.html" target="_blank"><img src="pic/p08.jpg" width="180"/></a>
+								     <p class="p_1">嘉雅巴巴莱斯科干红</p>
+										  <p>GAJA Barbaresco</p>
+										  <p>产地：意大利</p>
+										  <span><a href="company0003/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li>
+							       <div class="f3_top">
+										  <a href="company0003/product_list.html" target="_blank"><img src="pic/p09.jpg" width="180"/></a>
+								     <p class="p_1">奇迹经典起泡酒</p>
+										  <p>Otello N'ice</p>
+										  <p>产地：意大利</p>
+										  <span><a href="company0003/">查看代理商</a></span>
+								  </div>
+							 </li>
+							 <li class="last_01">
+							       <div class="f3_top">
+										  <a href="company0003/product_list.html" target="_blank"><img src="pic/p10.jpg" width="180"/></a>
+								     <p class="p_1">夏克拉 55限量珍藏干红</p>
+										  <p>Chacra Cincuenta Y Cinco</p>
+										  <p>产地：意大利</p>
+										  <span><a href="company0003/">查看代理商</a></span>
+								  </div>
+							 </li>
+						</ul>
+				  </div>
+				   
+			</div>-->
+			<!--f4-->
+			<div class="mainf1" id="mainf4">
+			      <div class="f_hear clearfix">
+				        <h3>F4 新进商家</h3>
+						<span>NEW <em>BUSINESSES</em></span>
+				  </div>
+				  <div class="f_bottom" style="height:200px;overflow:hidden">
+				        <ul class="f4_ul clearfix" id="f4_ul">
+						     <li>
+							      <h4><a href="/company0005/">好沃山酒业</a></h4>
+							      
+								  <p class="p-1">业务范围：<em>进口代理商</em></p>
+								  <p class="p-2">主营产品：<em>葡萄酒、品酒辅助产品</em></p>
+								  <div>推荐理由：<em>好沃山酒业拥有一支专业的葡萄酒品鉴队伍,成立于2007年9月，是中国首家专营加州葡萄酒的供应商。目前，代理来自纳帕谷60多家酒庄的200多款产品...</em></div>
+							 </li>
+							 <li>
+							      <h4><a href="company0011/">首彩葡萄酒首彩葡萄酒股份有限公司</a></h4>
+							      
+								  <p class="p-1">业务范围：<em>酒庄、品牌商</em></p>
+								  <p class="p-2">主营产品：<em>葡萄酒、定制酒、定制酒窖</em></p>
+								  <div>推荐理由：<em>首彩葡萄酒专业代理和经销原瓶进口葡萄酒，经公司精心挑选后而代理的葡萄酒品牌不断受到消费者的好评，打造成"中国第一进口葡萄酒品牌"...</em></div>
+							 </li>
+							 <li>
+							      <h4><a href="company0007/">美国名特食品葡萄酒公司</a></h4>
+							      
+								  <p class="p-1">业务范围：<em>代理、批发、加盟</em></p>
+								  <p class="p-2">主营产品：<em>进口葡萄酒</em></p>
+								  <div>推荐理由：<em>名特在中国市场推广优质的进口葡萄酒已有二十多年，独家代理来自全世界十六个国家的七百多个优质葡萄酒，在全国83个城市建立了批发和配送网络..</em></div>
+							 </li>
+							 <li>
+							      <h4><a href="company0012/">北京云门国际葡萄酒有限公司</a></h4>
+							      
+								  <p class="p-1">业务范围：<em>进口商，独家代理商</em></p>
+								  <p class="p-2">主营产品：<em>红葡萄酒、白葡萄酒</em></p>
+								  <div>推荐理由：<em>云门酒业是一家设立于中国大陆的葡萄酒进口商和经销商，分别在北京和上海设有分公司。公司致力于进口优质葡萄酒，传播世界美酒文化、酿造商和优等产区...</em></div>
+							 </li>
+						</ul>
+				  </div>
+			</div>
+			<!--f5 f6-->
+			<div class="mainf1 clearfix" id="mainf5">
+					  <div class="f_hear clearfix">
+					        <div class="ban_left">
+								 <h3>F5 产业观察</h3>
+								 <span>NEW <em>BUSINESSES</em></span>
+							 </div>
+							 <div class="ban_right">
+								<h3>F6 成功案例</h3>
+								<span>SUCCESSFUL <em>CASES</em></span>
+							</div>
+					  </div>
+					  <div class="f5_center clearfix">
+					      <div class="mainf1_left">
+						        <div class="main_5top clearfix">
+										<img src="__IMAGE__fan.jpg" width="140" height="80"/>
+										<div class="f5_center_right">
+											 <h4><a href="http://www.wine.cn/html/201401/25939.html" target="_blank">2014中国葡萄酒市场十大发展趋势</a></h4>
+											 <p>笔者结合各位行业大佬们的分析判断，以及市场现实，做了以下的梳理，盘点2014年中国葡萄酒市场的十大发展趋势...<a href="http://www.wine.cn/html/201401/25939.html" target="_blank">[查看详情]</a></p>
+										</div>
+								</div>
+								<ul class="f5_bottom clearfix">
+									 <li>
+										  <a href="http://www.wine.cn/html/201311/24720.html" target="_blank">刘强：做意大利葡萄酒是推广一种生活方式</a>
+										  <em>2014.2.27</em>
+								  </li>
+									 <li>
+										  <a href="http://www.wine.cn/html/201404/28484.html" target="_blank">现在谈O2M还为时尚早——访中酒网赖劲宇</a>
+										  <em>2014.2.27</em>
+								  </li>
+									 <li>
+										  <a href="http://www.wine.cn/html/201404/28454.html" target="_blank">"强强联合"成为糖酒会一大亮点</a>
+										  <em>2014.2.27</em>
+								  </li>
+									 <li>
+										  <a href="http://www.wine.cn/html/201404/28535.html" target="_blank">美夏IAN FORD：没有企业能够一尘不变</a>
+										  <em>2014.2.27</em>
+									 </li>
+								</ul>
+					    </div>  
+						<div class="mainf1_right">
+								 <div class="main_5top clearfix">
+										<img src="__IMAGE__fan1.jpg" width="140" height="80"/>
+										<div class="f5_center_right">
+											 <h4><a href="http://www.wine.cn/html/201403/28008.html" target="_blank">B2B的到达能有多快?逸香网来提速——天裕风范CEO庄武英评大众酒评</a></h4>
+											 <p>仅仅48小时，通过"大众酒评"的品鉴会+APP刷酒评+逸香网门户媒体发布的"逸香大众酒评"组合模式，北京天裕风范国际贸易有限公司(VINOTACHE)在没有任何传统推广的前提下，轻松得到了一张价值不菲的订单...<a href="http://www.wine.cn/html/201403/28008.html" target="_blank">[查看详情]</a></p>
+										</div>
+								</div>
+								
+					  </div>  
+				  </div> 
+			</div>
+	  </div>
+</div>
+<!--footer-->
+<include file="Common:footer_all"/>
+<script>
+	  var oUl=document.getElementById('f4_ul');
+	  var aLi=oUl.getElementsByTagName('li');
+	  oUl.innerHTML+=oUl.innerHTML;
+	  var iNum=-250;
+	  var iSpeed=3000;
+	  var timer=null
+	  right();
+	  for(var i=0;i<aLi.length;i++){
+	     oUl.style.width=aLi[i].offsetWidth*aLi.length+'px';
+	  }
+	   oUl.onmouseover=function(){
+		    clearInterval(timer);
+	   }  
+	  oUl.onmouseout=function(){
+		   right();
+	  }  
+	  function right(){
+		   timer=setInterval(function(){
+				  if(oUl.offsetLeft<=-oUl.offsetWidth/2){
+					  oUl.style.left=0+'px';
+				   }
+					oUl.style.left=oUl.offsetLeft+iNum+'px'
+				   },iSpeed)
+		}
+</script>

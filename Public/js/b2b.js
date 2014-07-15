@@ -7,14 +7,14 @@
 $(function() {
 
     //AJAX-post
-    function postData(action,data,text,elm){
+    function postData(action, data, text, elm) {
         var action = action,
             data = data,
             text = text,
             elm = elm;
 
         //删除操作
-        if(typeof elm == 'object'){
+        if (typeof elm == 'object') {
 
             $.post(action, data, function(res) {
                 if (res.st) {
@@ -30,7 +30,7 @@ $(function() {
 
             }, "json");
 
-        }else{
+        } else {
             $.post(action, data, function(res) {
                 if (res.st) {
                     $("#J_popinfo").text(text + "成功!");
@@ -45,67 +45,85 @@ $(function() {
     }
 
     //显示删除确认弹窗
-    function showDelPop(){
+    function showDelPop() {
         $("#J_pop").show();
         $("#J_sureBtn").hide();
         $("#J_sureDelBtn,#J_cancelBtn").show();
     }
 
-    //删除证书对应的透明文件域
-    function delAjaxUploadBox(elm) {
-        elm.children(".uploadimg").each(function() {
-            var mid = $(this).attr("data-mark");
-            $(".ajaxUploadBox[data-mark=" + mid + "]").remove();
 
-        });
-        elm.remove();
-        //调整其他已存在的透明文件域位置
-        $(".uploadimg").each(function(i) {
-            var $this = $(this),
-                mid = $this.attr("data-mark");
-
-            if (mid) {
-                $(".ajaxUploadBox[data-mark=" + mid + "]").css({
-                    left: $this.offset().left,
-                    top: $this.offset().top
-                });
-            }
-
-        });
-
-    }
-
-    //动态添加图片上传
-    function uploadImg(uploadurl, $this, $thisBox, uploadname) {
-
-
-        new AjaxUpload($this, {
-            action: uploadurl,
-            name: uploadname,
-            responseType: 'json',
-            onSubmit: function(file, ext) {},
-            onComplete: function(file, response) {
-                if (response.st == '0') {
-                    alert("图片上传失败!");
-                    return false;
-                } else {
-                    $("#J_qc").val(response.img);
-                    $thisBox.attr({
-                        "data-state": 1,
-                        "data-name": response.img
-                    });
-                    $("> a >img", $thisBox).attr("src", '../Upload/images/' + response.img);
+    //文件上传-B2B只涉及图片
+    var Upload = {
+        uploadImg: function(uploadurl, $this, $thisBox, uploadname, callback) {    //上传
+            var _this = this;
+            new AjaxUpload($this, {
+                action: uploadurl,
+                name: uploadname,
+                responseType: 'json',
+                onSubmit: function(file, ext) {},
+                onComplete: function(file, response) {
+                    if (response.st == '0') {
+                        alert("图片上传失败!");
+                        return false;
+                    } else {
+                        _this[callback]($this, $thisBox, response);
+                    }
                 }
-            }
-        });
-    }
+
+            });
+        },
+        certificate: function($this, $thisBox, response) {    //资质证书  
+            $("#J_qc").val(response.img);
+            $thisBox.attr({
+                "data-state": 1,
+                "data-name": response.img
+            });
+            $("> a >img", $thisBox).attr("src", '../Upload/images/' + response.img);
+        },
+        logo: function($this, $thisBox, response) {    //企业LOGO
+            $this.children("input").val(response.img);
+            $this.children("img").attr("src", '../Upload/images/' + response.img);
+        },
+        indexSet: function($this, $thisBox, response) {    //首页焦点图
+            $("#J_indexSetHotimg").val(response.img);
+            $("#J_indenSetImg").attr("src", '../Upload/images/' + response.img);
+        },
+        addWineImg: function($this, $thisBox, response) {   //添加酒款正标/副标/场景图
+            $("#J_cat" + ($this.index() + 1)).val(response.msg);
+            $this.children("img").attr("src", '../Upload/images/' + response.msg);
+        },
+        delAjaxUploadBox: function(elm) {    //删除证书对应的透明文件域
+            elm.children(".uploadimg").each(function() {
+                var mid = $(this).attr("data-mark");
+                $(".ajaxUploadBox[data-mark=" + mid + "]").remove();
+
+            });
+            elm.remove();
+            //调整其他已存在的透明文件域位置
+            $(".uploadimg").each(function(i) {
+                var $this = $(this),
+                    mid = $this.attr("data-mark");
+
+                if (mid) {
+                    $(".ajaxUploadBox[data-mark=" + mid + "]").css({
+                        left: $this.offset().left,
+                        top: $this.offset().top
+                    });
+                }
+
+            });
+
+        }
+
+    };
+
 
     //删除拼接的字符串末尾字符
-    function delEndChar(str,symbol){
+    function delEndChar(str, symbol) {
         var symbol = symbol || ",",
-            reg = new RegExp(symbol+"$");
+            reg = new RegExp(symbol + "$");
 
-        return str.replace(reg,'');
+        return str.replace(reg, '');
     }
 
 
@@ -113,21 +131,21 @@ $(function() {
     var dataCache = {};
 
     //导航高亮
-    $("#J_menu > li[data-m="+moduleName+"]").each(function(i,elm){
+    $("#J_menu > li[data-m=" + moduleName + "]").each(function(i, elm) {
         var $this = $(this),
             a = $this.attr("data-a"),
             $title = $this.children("h2").children("a");
 
-            if( a == "*" || (new RegExp("\\b"+actionName+"\\b")).test(a) ){
-                $title[0].className = $title[0].className + "_active";
+        if (a == "*" || (new RegExp("\\b" + actionName + "\\b")).test(a)) {
+            $title[0].className = $title[0].className + "_active";
+        }
+        $("> p ", $this).each(function() {
+            var a2 = $(this).attr("data-a");
+            if (a2 == a || a2 == actionName) {
+                $(this).addClass("p_active");
             }
-            $("> p ",$this).each(function(){
-                var a2 = $(this).attr("data-a");
-                if( a2 == a || a2 == actionName ){
-                    $(this).addClass("p_active");
-                }
 
-            });
+        });
 
     });
 
@@ -156,7 +174,7 @@ $(function() {
             return false;
         }
 
-        window.location.href = "/Product/search/key/"+keyword+"/type/"+type;
+        window.location.href = "/Product/search/key/" + (keyword || 0) + "/type/" + type;
 
         return false;
     });
@@ -233,21 +251,8 @@ $(function() {
         var uploadname = 'imgfile',
             indexSetBtn = $('#J_logoUpload');
 
-        new AjaxUpload(indexSetBtn, {
-            action: uploadurl,
-            name: uploadname,
-            responseType: 'json',
-            onSubmit: function(file, ext) {},
-            onComplete: function(file, response) {
-                if (response.st == '0') {
-                    alert("图片上传失败!");
-                    return false;
-                } else {
-                    indexSetBtn.children("input").val(response.img);
-                    indexSetBtn.children("img").attr("src", '../Upload/images/' + response.img);
-                }
-            }
-        });
+        Upload.uploadImg(uploadurl, indexSetBtn, {}, uploadname, "logo");
+
     }
 
     /*
@@ -255,10 +260,10 @@ $(function() {
     */
     //新增地址
     $("#J_address").on("click", function() {
-        var size = $("#J_addressList > div").size(),
+        var size = $("#J_addressList > div").size(), //D->TODO 允许添加的地址条目最大值
             addressTpl = '';
         //proList 模版文件中存放的省份列表
-        addressTpl += '<div class="lxxx_listBox bb1e5e5e5">' + '<div class="tableTr">' + '<i class="i">企业地址：</i>' + '<span class="span">' + '<select class="inp_sel H_selProvince" name="selProvince">' + proList + '</select>' + '<select class="inp_sel H_selCity" name="selCity">' + '<option value="0">--市/区---</option>' + '</select>' + '<input type="text" name="Detailed" class="inp_txt" value="" />' + '<a href="javascript:void(0)" data-id="0" class="lxxx_list_removeBtn H_deladdress">删除</a>' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">联 系 人：</i>' + '<span class="span">' + '<input type="text" name="uname" class="inp_txt" value="" />' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">手    机：</i>' + '<span class="span">' + '<input type="text" name="phone" class="inp_txt" value="">' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">固    话：</i>' + '<span class="span">' + '<input type="text" name="tel" class="inp_txt" value="">' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">传    真：</i>' + '<span class="span">' + '<input type="text" name="fax" class="inp_txt" value="">' + '</span>' + '</div>' + '</div>';
+        addressTpl += '<div class="lxxx_listBox bb1e5e5e5">' + '<div class="tableTr">' + '<i class="i">企业地址：</i>' + '<span class="span">' + '<select class="inp_sel inp_sel_region H_selProvince" name="selProvince">' + proList + '</select> ' + '<select class="inp_sel inp_sel_region H_selCity" name="selCity">' + '<option value="0">--市/区---</option>' + '</select> ' + '<input type="text" name="Detailed" class="inp_txt" value="" />' + '<a href="javascript:void(0)" data-id="0" class="lxxx_list_removeBtn H_deladdress">删除</a>' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">联 系 人：</i>' + '<span class="span">' + '<input type="text" name="uname" class="inp_txt" value="" />' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">手    机：</i>' + '<span class="span">' + '<input type="text" name="phone" class="inp_txt" value="">' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">固    话：</i>' + '<span class="span">' + '<input type="text" name="tel" class="inp_txt" value="">' + '</span>' + '</div>' + '<div class="tableTr">' + '<i class="i">传    真：</i>' + '<span class="span">' + '<input type="text" name="fax" class="inp_txt" value="">' + '</span>' + '</div>' + '</div>';
 
         $("#J_addressList").append(addressTpl);
 
@@ -278,7 +283,9 @@ $(function() {
 
             //弹窗
             showDelPop();
-            dataCache.data = {id:id};
+            dataCache.data = {
+                id: id
+            };
             dataCache.text = "删除地址";
             dataCache.box = $thisBox;
         }
@@ -308,18 +315,17 @@ $(function() {
 
         });
 
-        postData(action,dataArr,'保存');
+        postData(action, dataArr, '保存');
 
         return false;
 
     });
 
-    //省市联动
-    $("#J_addressList").on("change",".H_selProvince",function(){
+    //省市联动 D->TODO
+    $("#J_addressList").on("change", ".H_selProvince", function() {
         var $this = $(this),
             val = $this.val(),
             $cityBox = $this.next();
-            console.log(val);
 
         if (val == '0') {
             return false;
@@ -349,27 +355,29 @@ $(function() {
     //删除客户留言-弹窗
     $(".h_delmsg").on("click", function() {
         var box = $(this).parent().parent(),
-            id = box.attr("data-id");        
+            id = box.attr("data-id");
 
         showDelPop();
-        dataCache.data = {id:id};
+        dataCache.data = {
+            id: id
+        };
         dataCache.text = "删除留言";
         dataCache.box = box;
 
         return false;
     });
-    
-    //删除客户留言/地址/产品
-    $("#J_sureDelBtn").on("click",function(){
 
-        postData(delAction,dataCache.data,dataCache.text,dataCache.box);
+    //删除客户留言/地址/产品
+    $("#J_sureDelBtn").on("click", function() {
+
+        postData(delAction, dataCache.data, dataCache.text, dataCache.box);
 
         return false;
 
     });
 
     //取消
-    $("#J_cancelBtn").on("click",function(){
+    $("#J_cancelBtn").on("click", function() {
         $("#J_pop").hide();
         return false;
     });
@@ -391,27 +399,16 @@ $(function() {
         }
 
     });
+
     //企业首页设置焦点图
     if (document.getElementById("J_indexSet")) {
         var uploadname = 'imgfile',
             indexSetBtn = $('#J_indexSet');
 
-        new AjaxUpload(indexSetBtn, {
-            action: uploadurl,
-            name: uploadname,
-            responseType: 'json',
-            onSubmit: function(file, ext) {},
-            onComplete: function(file, response) {
-                if (response.st == '0') {
-                    alert("图片上传失败!");
-                    return false;
-                } else {
-                    $("#J_indexSetHotimg").val(response.img);
-                    $("#J_indenSetImg").attr("src", '../Upload/images/' + response.img);
-                }
-            }
-        });
+        Upload.uploadImg(uploadurl, indexSetBtn, {}, uploadname, "indexSet");
+
     }
+
     //内容保存
     $("#J_saveConBtn").on("click", function() {
 
@@ -423,28 +420,31 @@ $(function() {
         }
 
         //post
-        postData(action,data,'保存');
+        postData(action, data, '保存');
         return false;
     });
 
     /*
         我的产品/服务
      */
-     //删除产品
-     $("#J_productList .removeBtn").on("click",function(){
+    //删除产品
+    $("#J_productList .removeBtn").on("click", function() {
         var $this = $(this),
             id = $this.attr("data-id"),
             type = $this.attr("data-type") || 0,
             $delBox = $this.parent().parent();
 
-            showDelPop();
+        showDelPop();
 
-            dataCache.data = {id:id,type:type};
-            dataCache.text = "删除";
-            dataCache.box = $delBox;
+        dataCache.data = {
+            id: id,
+            type: type
+        };
+        dataCache.text = "删除";
+        dataCache.box = $delBox;
 
         return false;
-     });
+    });
 
 
     //根据国家切换产区 D->change
@@ -531,6 +531,7 @@ $(function() {
 
     });
 
+    //批量选中后跳转到批量处理页面
     $("#J_sureAddBtn").on("click", function() {
         var $this = $(this),
             ids = '';
@@ -549,14 +550,14 @@ $(function() {
     });
 
     //批发价自定义价格输入框聚焦的时候激活对应单选按钮
-    $(".price_txt").on("focus",function(){
-        $(this).prev().prop("checked",true);
+    $(".price_txt").on("focus", function() {
+        $(this).prev().prop("checked", true);
     });
 
     //批量添加
     $("#J_batchAdd").on("click", function() {
         var $this = $(this),
-            $sel = $("#J_b2bTable > table input[type=checkbox]:checked"),
+            $sel = $("#J_b2bTable > table :checkbox:checked"),
             $datalist = $sel.parents("tr"),
             size = $sel.size(),
             data = {};
@@ -574,14 +575,14 @@ $(function() {
                 hpc,
                 chyear = $that.find(".chyear > em"),
                 yer = '',
-                fnm = $("#fnm_" + id).val(),//英文名
-                cnm = $("#cnm_" + id).val(),//中文名
-                cad = $("#cad_" + id).val(),//
-                brd = $("#brd_" + id).val(),//品牌
-                wtp = $("#wtp_" + id).val(),//类型
-                grp = $("#grp_" + id).val(),//葡萄品种
-                cty = $("#cty_" + id).val(),//国家
-                reg = $("#reg_" + id).val();//产区
+                fnm = $("#fnm_" + id).val(), //英文名
+                cnm = $("#cnm_" + id).val(), //中文名
+                cad = $("#cad_" + id).val(), //
+                brd = $("#brd_" + id).val(), //品牌
+                wtp = $("#wtp_" + id).val(), //类型
+                grp = $("#grp_" + id).val(), //葡萄品种
+                cty = $("#cty_" + id).val(), //国家
+                reg = $("#reg_" + id).val(); //产区
 
             //批发价
             if (pricesel == 2) {
@@ -613,7 +614,9 @@ $(function() {
         });
 
         //A=doAddWineBySearch
-        postData(action,{info:data},"添加");
+        postData(action, {
+            info: data
+        }, "添加");
 
         return false;
 
@@ -635,8 +638,8 @@ $(function() {
             $this2 = $thisBox.children(".uploadimg").eq(1);
 
 
-        uploadImg(uploadurl, $this, $thisBox, uploadname);
-        uploadImg(uploadurl, $this2, $thisBox, uploadname);
+        Upload.uploadImg(uploadurl, $this, $thisBox, uploadname, "certificate");
+        Upload.uploadImg(uploadurl, $this2, $thisBox, uploadname, "certificate");
 
 
         return false;
@@ -657,13 +660,13 @@ $(function() {
                 if (res.st == 0) {
                     alert("删除失败!");
                 } else {
-                    delAjaxUploadBox($thisBox);
+                    Upload.delAjaxUploadBox($thisBox);
                 }
 
             });
         } else {
 
-            delAjaxUploadBox($thisBox);
+            Upload.delAjaxUploadBox($thisBox);
         }
 
         return false;
@@ -676,8 +679,7 @@ $(function() {
             $this = $(this),
             $thisBox = $this.parent();;
 
-        uploadImg(uploadurl, $this, $thisBox, uploadname);
-
+        Upload.uploadImg(uploadurl, $this, $thisBox, uploadname, "certificate");
 
     });
 
@@ -698,7 +700,7 @@ $(function() {
         }
 
 
-        data.imgs = '';        
+        data.imgs = '';
 
         $(".upPicEm").each(function(i, elm) {
             var $this = $(this),
@@ -710,7 +712,7 @@ $(function() {
         });
         data.imgs = delEndChar(data.imgs);
 
-        postData(action,data,"操作");
+        postData(action, data, "操作");
 
         return false;
     });
@@ -724,21 +726,7 @@ $(function() {
         var $this = $(this),
             uploadname = 'imgfile';
 
-        new AjaxUpload($this, {
-            action: uploadurl,
-            name: uploadname,
-            responseType: 'json',
-            onSubmit: function(file, ext) {},
-            onComplete: function(file, response) {
-                if (response.st == '0') {
-                    alert("图片上传失败!");
-                    return false;
-                } else {
-                    $("#J_cat" + ($this.index() + 1)).val(response.msg);
-                    $this.children("img").attr("src", '../Upload/images/' + response.msg);
-                }
-            }
-        });
+        Upload.uploadImg(uploadurl, $this, {}, uploadname, "addWineImg");
 
     });
 
@@ -747,7 +735,7 @@ $(function() {
         $("#J_brandPop").hide();
 
     });
-    //酒庄/品牌弹窗
+    //显示酒庄/品牌弹窗
     $("#J_runBrandPop").on("click", function() {
 
         $("#J_brandPop").show();
@@ -851,7 +839,7 @@ $(function() {
 
     //删除葡萄品种标签
     $("#J_varietyTag").on('click', ' > li > em', function() {
-         $(this).parent().remove();
+        $(this).parent().remove();
     });
 
     //添加葡萄酒
@@ -893,18 +881,28 @@ $(function() {
         });
         data.yer = delEndChar(data.yer);
 
-        postData(action,{info:data,imgs:imgs},"添加");
+        postData(action, {
+            info: data,
+            imgs: imgs
+        }, "添加");
 
         return false;
 
     });
 
-    //导入已发布的酒款
+    //导入已发布的酒款 D->TODO
     $("#J_importBtn").on("click", function() {
 
-        var ids = '';
+        var ids = '',
+            elements = $("#J_b2bTable input[name=wid]:checked"),
+            count = elements.size();
 
-        $("#J_b2bTable input[name=wid]:checked").each(function(i) {
+        if (!count) {
+            alert('请至少选择一项');
+            return false;
+        }
+
+        elements.each(function(i) {
 
             ids += $(this).val() + ',';
 
@@ -912,7 +910,9 @@ $(function() {
 
         ids = delEndChar(ids);
 
-        postData(action,{ids:ids},"导入");
+        postData(action, {
+            ids: ids
+        }, "导入");
 
         return false;
 
@@ -924,9 +924,9 @@ $(function() {
         var data = {},
             imgs = {};
 
-        data.id = $("#J_addWineId").val() || "";//ID 编辑用
-        data.typ = $("#J_addWineType").val();//类型
-        data.bcd = $("#J_addWineBarcode").val();//条形码
+        data.id = $("#J_addWineId").val() || ""; //ID 编辑用
+        data.typ = $("#J_addWineType").val(); //类型
+        data.bcd = $("#J_addWineBarcode").val(); //条形码
         data.cnm = $("#J_addWineCname").val(); //中文名
         data.enm = $("#J_addWineFname").val(); //英文名        
         data.brd = $("#J_addWineBrand").val(); //品牌
@@ -935,13 +935,13 @@ $(function() {
         data.reg = $("#J_addWineReg").val(); //产地
         data.tit = $("#J_addWineTit").val(); //标题
         data.acd = $("#J_addWineAcd").val(); //酒精度
-        data.cpt = $("#J_addWineCpt").val();//容量
+        data.cpt = $("#J_addWineCpt").val(); //容量
         data.spt = $("#J_addWineSpt").val(); //包装
-        data.ftr = $("#J_addWineFtr").val();//产品特征
-        data.hos = $("#J_addWineHos").val();//酒厂
-        data.raw = $("#J_addWineRaw").val();//原料
+        data.ftr = $("#J_addWineFtr").val(); //产品特征
+        data.hos = $("#J_addWineHos").val(); //酒厂
+        data.raw = $("#J_addWineRaw").val(); //原料
         data.onr = $("#J_addWineOnr").val(); //荣誉奖项
-        data.prs = $("#J_addWinePrs").val();//酿造工艺
+        data.prs = $("#J_addWinePrs").val(); //酿造工艺
         data.hpc = $("#J_wholesalePrice input[name=price1]:checked").val(); //批发价
         imgs = {
             cat1: $("#J_cat1").val(),
@@ -955,7 +955,10 @@ $(function() {
         }
 
         //添加
-        postData(action,{info:data,imgs:imgs},"添加");
+        postData(action, {
+            info: data,
+            imgs: imgs
+        }, "添加");
         return false;
 
     });

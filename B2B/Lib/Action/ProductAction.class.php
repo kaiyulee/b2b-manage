@@ -331,11 +331,7 @@ class ProductAction extends BaseAction {
 	 * search wines from houtai.wine.cn
 	 */ 
 	public function searchHouTai() {
-		$mo = M();
-		$ymId = cookie('ym_user_uid');
-		// 葡萄酒
-		// 白酒
-		// 烈酒
+		// todo 
 	}
 
 	public function getWineById(){

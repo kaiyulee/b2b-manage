@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>逸香网在线酒展酒商与代理商</title>
+</head>
+<link href="__CSS__main.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__list.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__index.css" rel="stylesheet" type="text/css" />
+<script src="__JS__jquery-1.11.1.min.js" type="text/javascript"></script>
+<body>
+<!--hearder-->
+<include file="Common:header_all"/>
+<!--containe-->
+<div id="containe">
+      <div class="content">
+	        <div class="content_header clearfix">
+			     <a href="index.html" class="content_header_logo">
+				     <img src="__IMAGE__logo.jpg" width="225" height="56"/>
+				 </a>
+				 <div class="content_con">
+				      <div class="content_con_top clearfix">
+						  <div class="content_con_top_left">
+							  <h4>商家</h4>
+							  <ul>
+									<li>品牌</li>
+									<li>产品</li>
+									<li>服务</li>
+									<li>酒商</li>
+									<li>代理商</li>
+							  </ul>
+						  </div>
+						  <input type="text" id="text_526"/>
+						  <input type="button" value="搜 索" id="button_526"/>
+				     </div>
+					 <div class="content_con_bottom">
+					      热门搜索：<a href="#">波尔多</a> | <a href="#">拉菲</a> | <a href="#">奔富</a> | <a href="#">红魔鬼</a> | <a href="#">起泡酒</a> | <a href="#">精品葡萄酒</a>
+					 </div>
+				 </div>
+				 <a href="#"  class="content_header_log">
+				      <img src="__IMAGE__pic_526.gif" height="60"/>
+				 </a>
+			</div>
+	  </div>
+	  <div class="main">
+	        <div class="main_top clearfix">
+			       <div class="main_top_left">
+				        <span>国内馆</span>
+				   </div>
+				   <ul class="subnav">
+				        <li>
+						     <a href="__ROOT__">展销大厅</a>
+						</li>
+						<li class="subnav_li">
+						    <a href="__ROOT__/Brands"> 品 牌 </a>
+						</li>
+						<li>
+						     <a href="__ROOT__/Proandserv">产品/服务</a>
+						</li>
+						<li>
+						     <a href="__ROOT__/Company">酒商/代理商</a>
+						</li>
+				   </ul>
+			</div>
+			 <div class="zb_main clearfix">
+      	<div class="zb_main_l">
+             <ul class="zb_main_l_ul">
+             	<li class="bt0"><a href="__ROOT__/Brands" class="active">红酒</a></li>
+				<li><a href="__ROOT__/Brands/bj">白酒</a></li>
+				<li><a href="__ROOT__/Brands/tool">酒具</a></li>
+             </ul>
+             <h2><img src="__IMAGE__brand_526.gif"/></h2>
+			  <ul class="ld_sider clearfix">
+			       <li>
+                    <h3><a href="brand_information.html"><img src="__IMAGE__ro_526.gif" height="80"/></a></h3>
+						<h4 class="ld_main_l_h4">百利 Baileys</h4>
+				   </li>
+				    <li>
+                    <h3><a href="/company0001/pd0001.html"><img src="__IMAGE__ro_526.gif" height="80"/></a></h3>
+						<h4 class="ld_main_l_h4">百利 Baileys</h4>
+				   </li>
+				  <li>
+                    <h3><a href="/company0001/pd0001.html"><img src="__IMAGE__ro_526.gif" height="80"/></a></h3>
+						<h4 class="ld_main_l_h4">百利 Baileys</h4>
+				   </li>
+			  </ul>
+        </div>
+        <div class="zb_main_r">
+		    <div class="zb_kill" style="display:block">
+			      <div class="ld526_top">
+				       <ul>
+					       <li>
+						        <span>国家：<a href="__ROOT__/Brands">不限</a> <a href="__ROOT__/Brands/index/ctry/14">法国</a>   <a href="__ROOT__/Brands/index/ctry/47">智利</a>   <a href="__ROOT__/Brands/index/ctry/40">西班牙</a>   <a href="__ROOT__/Brands/index/ctry/3">阿根廷</a>   <a href="__ROOT__/Brands/index/ctry/16">德国</a>   <a href="__ROOT__/Brands/index/ctry/21">意大利</a>   <a href="__ROOT__/Brands/index/ctry/5">澳大利亚</a>   <a href="__ROOT__/Brands/index/ctry/10">中国</a>   <a href="__ROOT__/Brands/index/ctry/2">美国</a>   <a href="__ROOT__/Brands/index/ctry/34">葡萄牙</a>   <a href="__ROOT__/Brands/index/ctry/32">新西兰</a>   <a href="__ROOT__/Brands/index/ctry/39">南非</a>   <a href="__ROOT__/Brands/index/ctry/9">加拿大</a></span>
+						   </li>
+					   </ul>
+				  </div>
+				  <div class="ourj_526_suc">找到<span class="red">1</span>个符合条件的结果;抱歉，没有找到符合条件的结果。</div>
+				  <div class="lidong_div">
+						   <ul class="z_main_r_list526 clearfix">
+						   <volist name="brands" id="vo">
+								 <li>
+									<a href="__ROOT__/Brands/getwinery/id/{$vo.id}">
+									<if condition="$vo.brand_img neq false">
+										<img src="COMMON_UPLOAD/Jiuku/Winery/images/{$vo.brand_img}">
+										<else/><img src="__IMAGE__ro_526.gif"/>
+									</if>
+										<span>{$vo.cname}</span>
+									</a>
+								 </li>
+							</volist>	
+						  </ul>
+							<p class="zb_page pagination" id="Pagination">
+								{$pageBar}
+						  </p>
+				 </div>
+			</div>
+			 <div class="zb_kill">
+			       <div class="ld526_top">
+				       <ul>
+					       <li>
+						        <span>业务范围：<a href="#">不限</a><a href="#">代理</a><a href="#">加盟</a><a href="#">批发</a><a href="#">OEM</a></span>
+						   </li>
+						   <li>
+						        <span>业务覆盖：<a href="#">不限</a><a href="#">代理</a><a href="#">加盟</a><a href="#">批发</a><a href="#">OEM</a></span>
+						   </li>
+						   <li>
+						        <span>企业规模：<a href="#">不限</a><a href="#">代理</a><a href="#">加盟</a><a href="#">批发</a><a href="#">OEM</a></span>
+						   </li>
+					   </ul>
+				  </div>
+				  <div class="ourj_526_suc">找到<span class="red">1</span>个符合条件的结果;抱歉，没有找到符合条件的结果。</div>
+				  <div class="lidong_div">
+						   <ul class="z_main_r_list526 clearfix">
+								 <li>
+									<a href="brand_information.html">
+										<img src="__IMAGE__ro_526.gif"/>
+										<span>百利 Baileys</span>
+									</a>
+								 </li>
+						  </ul>
+							<p class="zb_page pagination" id="Pagination">
+								<a href="#">&lt;上一页</a>
+								<span class="current">1</span>
+								<a href="#">2</a>
+								<a href="#" class="active">3</a>
+								<a href="#">4</a>
+								<a href="#">5</a>
+								<a href="#">下一页&gt;</a>
+						  </p>
+				 </div>
+			</div>      
+        </div>
+      </div>
+</div>
+<!--footer-->
+<include file="Common:footer_all"/>

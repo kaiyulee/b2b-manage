@@ -21,6 +21,7 @@ a{ color:#555; text-decoration:none;}
 .t82{ position:relative; top:82px;}
 .w230{ width:230px !important; }
 .fr{ float:right;}
+.fl{float: left;}
 
 /* head */
 .headbg{ background:#FFF;}
@@ -80,7 +81,7 @@ a{ color:#555; text-decoration:none;}
 .btnP{ text-align:center; padding:10px 0;}
 .sjinfo_tipTit02{ width:744px; height:32px; background:url(../images/nav_tit_bg.png) no-repeat 0 -33px;}
 .step4_p{ margin-top:16px; margin-bottom:6px; color:#555555;}
-.noDataBox{ background:url(../images/no_infoIco.gif) no-repeat 0 center; width:400px; padding-left:96px; margin:10px auto; font-size:14px; line-height:30px;display: none;}
+.noDataBox{ background:url(../images/no_infoIco.gif) no-repeat 0 center; width:400px; padding-left:96px; margin:10px auto; font-size:14px; line-height:30px;}
 .noDataBox a{ color:#e73535;}
 .step7_p a{ line-height:36px; display:inline-block;}
 .step7 .chyear{ padding:12px;}
@@ -150,7 +151,9 @@ a{ color:#555; text-decoration:none;}
 .inp_txt{ padding:8px 10px; border:1px solid #e5e5e5; width:330px; display:inline-block;}
 .inp_txt_short{width: 40px;}
 .inp_textarea{padding:8px 10px; border:1px solid #e5e5e5;display:inline-block;width: 600px;height: 120px;}
-.inp_sel{ padding:9px; border:1px solid #e5e5e5;}
+.inp_sel{ padding:6px 9px; border:1px solid #e5e5e5;background: #FFF;}
+.inp_sel_search{width: 154px;}
+.inp_sel_region{width: 90px;}
 .b2bTable table{ border:1px solid #e5e5e5; border-right:0; border-bottom:0;}
 .b2bTable td,.b2bTable th{ border:1px solid #e5e5e5; border-left:0; border-top:0; padding:10px;}
 .b2bTable th{ text-align:center;}
@@ -187,7 +190,7 @@ a{ color:#555; text-decoration:none;}
 .b2b_pageBox{ text-align:center; margin:20px;}
 .b2b_pageBox a,.b2b_pageBox span{ border:1px solid #d6d6d6; padding:4px 7px; display:inline-block; margin-right:6px; color:#959595;}
 .b2b_pageBox .active,.b2b_pageBox .current{ color:#FFF; background:#e73535;}
-
+.search-pages{margin: 0;line-height: 12px;margin-top: 7px;}
 
 /*
     弹窗
